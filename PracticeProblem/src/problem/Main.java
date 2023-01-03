@@ -7,13 +7,9 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		
 		int A = sc.nextInt();
-		int B = sc.nextInt();
 		
+		System.out.println(A-543);
 
-		System.out.println(A+B);
-		System.out.println(A-B);
-		System.out.println(A*B);
-		System.out.println(A/B);
-		System.out.println(A%B);
+		
 	}
 }
