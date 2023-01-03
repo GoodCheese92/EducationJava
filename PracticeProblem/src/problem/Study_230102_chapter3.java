@@ -1,4 +1,4 @@
-package ex2_value_type;
+package problem;
 
 public class Study_230102_chapter3 {
 	public static void main(String[] args) {

@@ -1,6 +1,6 @@
-package ex2_value_type;
+package problem;
 
-public class Study_230102 {
+public class Study_230102_chapter2 {
 	public static void main(String[] args) {
 		// 2-1 ÀÚ·áÇü
 		/*
