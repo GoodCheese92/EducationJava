@@ -27,14 +27,14 @@ public class Ex5_work {
 		System.out.println("-------방법 1-------");
 		int total = pear + apple + orange;
 		System.out.println("총 하루 생산량 : " + total);
-		float hour_output = (float)total/24f;
+		float hour_output = (float)total/24;
 		System.out.println("시간 당 과일생산량 : " + hour_output);
 		
 		System.out.println("-------방법 2-------");
 		System.out.println("총 하루 생산량 : " + (pear + apple + orange));
 		System.out.println("시간 당 과일생산량 : " + (float)total/24f);
 		
-		
+		System.out.println(1+2+"ABC"+1+2);
 		
 	
 		

@@ -44,7 +44,7 @@ public class Study_230102_chapter2 {
 		System.out.println("1"+1+1);
 		
 		// 2-6 키워드가 아닌 것은? b, c, d, e
-		// ex) 키워드 예시 - abstract, if, for, true, throws, fianl, null, void
+		// ex) 키워드 예시 - abstract, if, for, true, throws, final, null, void
 		
 		// 2-7 변수 이름으로 사용 가능한 것? c, d, e, f
 		// (1) 대소문자 구별, 길이 상관 없음
