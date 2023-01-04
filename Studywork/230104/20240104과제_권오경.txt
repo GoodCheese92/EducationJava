@@ -1,0 +1,133 @@
+package ex2_switch;
+
+public class Ex4_work {
+	
+	public static void main(String[] args) {
+		
+		//1) 8월은 31일까지 있습니다.		
+		//2) 15월은 없습니다.
+			
+		int month = 12;
+		
+		switch( month ) {
+		case 1:
+			System.out.println(1 + "월은 31일까지 있습니다.");
+			break;		
+		case 2:
+			System.out.println(2 + "월은 28일까지 있습니다.");
+			break;
+		case 3:
+			System.out.println(3 + "월은 31일까지 있습니다.");
+			break;
+		case 4:
+			System.out.println(4 + "월은 30일까지 있습니다.");
+			break;
+		case 5:
+			System.out.println(5 + "월은 31일까지 있습니다.");
+			break;
+		case 6:
+			System.out.println(6 + "월은 30일까지 있습니다.");
+			break;
+		case 7:
+			System.out.println(7 + "월은 31일까지 있습니다.");
+			break;
+		case 8:
+			System.out.println(8 + "월은 31일까지 있습니다.");
+			break;
+		case 9:
+			System.out.println(9 + "월은 30일까지 있습니다.");
+			break;
+		case 10:
+			System.out.println(10 + "월은 31일까지 있습니다.");
+			break;
+		case 11:
+			System.out.println(11 + "월은 30일까지 있습니다.");
+			break;
+		case 12:
+			System.out.println(12 + "월은 31일까지 있습니다.");
+			break;
+		default:
+			System.out.println(month + "월은 없습니다.");
+			break;
+		}
+		
+		System.out.println("-----------------------------------------");
+		
+		String ch1 = "월은 ";
+		String ch2 = "일까지 있습니다.";
+		String ch3 = "월은 없습니다.";
+				
+		if (month==1) {
+			System.out.println( month + ch1 + 31 + ch2 );
+		}else if(month==2) {
+			System.out.println( month + ch1 + 28 + ch2 );
+		}else if(month==3) {
+			System.out.println( month + ch1 + 31 + ch2 );
+		}else if(month==4) {
+			System.out.println( month + ch1 + 30 + ch2 );
+		}else if(month==5) {
+			System.out.println( month + ch1 + 31 + ch2 );
+		}else if(month==6) {
+			System.out.println( month + ch1 + 30 + ch2 );
+		}else if(month==7) {
+			System.out.println( month + ch1 + 31 + ch2 );
+		}else if(month==8) {
+			System.out.println( month + ch1 + 31 + ch2 );
+		}else if(month==9) {
+			System.out.println( month + ch1 + 30 + ch2 );
+		}else if(month==10) {
+			System.out.println( month + ch1 + 31 + ch2 );
+		}else if(month==11) {
+			System.out.println( month + ch1 + 30 + ch2 );
+		}else if(month==12) {
+			System.out.println( month + ch1 + 31 + ch2 );
+		}else{
+			System.out.println( month + ch3 );
+		};
+				
+	}//main
+
+}
+
+
+
+------------------------------------------------------------------------------------
+
+package ex2_switch;
+
+public class Ex5_work {
+	
+	public static void main(String[] args) {
+		
+		// 스위치문 사용 / 10 + 5 = 15
+		
+		int su1 = 10;
+		int su2 = 5;
+		char op = '+'; //+,-,*,/, % 중 하나 원하는 연산자 넣기
+		
+		
+		switch (op) {
+		case '+':
+			System.out.println(su1 + " + " + su2 + " = " + (su1+su2));
+			break;
+		case '-':
+			System.out.println(su1 + " - " + su2 + " = " + (su1-su2));
+			break;
+		case '*':
+			System.out.println(su1 + " * " + su2 + " = " + (su1*su2));
+			break;
+		case '/':
+			System.out.println(su1 + " / " + su2 + " = " + (su1/su2));
+			break;
+		case '%':
+			System.out.println(su1 + " % " + su2 + " = " + (su1%su2));
+			break;
+
+		default:
+			System.out.println("잘못된 입력값 입니다.");
+			break;
+		}//case			
+				
+	}//main
+
+}
