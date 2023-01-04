@@ -109,11 +109,48 @@ public class Study_230104_chapter4 {
 		// 4-6 두 개의 주사위를 던졌을 때, 눈의 합이 6이 되는 모든 경우의 수
 		for (int i = 1; i <= 6; i++) {
 			for (int j = 1; j <= 6; j++) {
-				if(i+j==6) {
-					System.out.println("주사위 1 : "+i+", 주사위 2 : "+j);
+				if (i + j == 6) {
+					System.out.println("주사위 1 : " + i + ", 주사위 2 : " + j);
+				}
+			}
+		} // end of for
+
+		// 4-7 Math.random()을 이용 1~6 사이 출력
+		System.out.println("=====4-7=====");
+		int value7 = (int) Math.random() * 6;
+		System.out.println("value : " + value7);
+
+		// 4-8 2x+4y=10의 모든 해를 구하시오.
+		System.out.println("=====4-8=====");
+		for (int x8 = 0; x8 < 11; x8++) {
+			for (int y8 = 0; y8 < 11; y8++) {
+				if (x8 * 2 + y8 * 4 == 10) {
+					System.out.println("x = " + x8 + ", y = " + y8);
 				}
 			}
 		}
 
+		// 4-9 숫자로 이루어진 문자열 str, 각 자리 숫자의 합 구하기
+		System.out.println("=====4-9=====");
+		String str9 = "156156";
+		int sum9 = 0;
+
+		for (int i = 0; i < str9.length(); i++) {
+			sum9 += Character.getNumericValue(str9.charAt(i));
+			System.out.print(str9.charAt(i) + " ");
+		}
+
+		System.out.println("sum = " + sum9);
+		
+		// 4-10 int 타입의 num의 각 자리 숫자 합
+		System.out.println("=====4-10=====");
+		int num10 = 12345;
+		int sum10 = 0;
+		
+		for(int i=0;;) {
+			num10/
+		}
+		
+		
 	} // main
-} // end class
+} // end of class
