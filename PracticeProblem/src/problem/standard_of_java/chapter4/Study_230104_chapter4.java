@@ -1,4 +1,7 @@
-package problem;
+package problem.standard_of_java.chapter4;
+
+import java.util.Random;
+import java.util.Scanner;
 
 public class Study_230104_chapter4 {
 	public static void main(String[] args) {
@@ -141,19 +144,105 @@ public class Study_230104_chapter4 {
 		}
 
 		System.out.println("sum = " + sum9);
-		
+
 		// 4-10 int 타입의 num의 각 자리 숫자 합
 		System.out.println("=====4-10=====");
-		int num10 = 12345;
+		int num10 = 1234548;
 		int sum10 = 0;
-		for(int i = 1; num10 <10; i *= 10) {
-			sum10 += num10%10;
-			System.out.print(sum10+" ");
-			num10 = num10/10;
-			System.out.print(num10+"<- 나머지 ");
+		while (num10 != 0) {
+			sum10 += num10 % 10;
+			num10 /= 10;
 		}
 		System.out.println(sum10);
+
+		// 4-11 피보나치 수열 1, 1, 2, 3, 5, 8, ... -> 10번 째 수 구하기
+		System.out.println("=====4-11=====");
+		int num11_1 = 1;
+		int num11_2 = 1;
+		int num11_3 = 0; // 세번 째 값
+		System.out.print(num11_1 + ", " + num11_2);
+
+		for (int i = 0; i < 8; i++) {
+			num11_3 = num11_1 + num11_2;
+			System.out.print(", " + num11_3);
+			num11_1 = num11_2;
+			num11_2 = num11_3;
+		}
+		System.out.println();
+
+		// **4-12 구구단의 일부분을 다음과 같이 출력하시오.
+		System.out.println("=====4-12=====");
+		for (int i = 1; i <= 3; i++) {
+			for (int j = 2; j <= 9; j++) {
+				System.out.printf("%d*%d=%d\t", j, i, i * j);
+//				if(j%3==1) {
+//					System.out.println();
+//				}
+			}
+			System.out.println();
+		}
+
+		// 4-13 다음 주어진 문자열(value)이 숫자인지 판별
+		System.out.println("=====4-13=====");
+		String value = "12o34";
+		char ch13 = ' ';
+		boolean isNumber = true;
+
+		for (int i = 0; i < value.length(); i++) {
+			ch13 = value.charAt(i);
+			if(!(ch13>='1' && ch13 <='9')) {
+				isNumber = false;
+				break;
+			}
+		}
 		
+		if(isNumber) {
+			System.out.println(value + "는 숫자입니다.");
+		}else {
+			System.out.println(value+"는 숫자가 아닙니다.");
+		}
+		
+		// 4-14 숫자맞추기 게임. 1과 100사이 값을 반복적으로 입력해서 컴퓨터가 생각한 값과 동일하면 게임 끝
+		// 사용자가 값을 입력하면 컴퓨터가 생각한 값과 비교해서 결과를 알려주고 몇 번만에 맞췄는지 알려줌
+		System.out.println("=====4=14=====");
+		Random rnd = new Random();
+		int answer14 = rnd.nextInt(100) + 1;
+		int input14 = 0;	// 사용자 입력을 저장할 공간
+		int count = 0;		// 시도 횟수를 세기 위한 변수
+		
+		Scanner sc = new Scanner(System.in);
+		
+		do {
+			count++;
+			System.out.print("1과 100사이의 값을 입력하세요 : ");
+			input14 = sc.nextInt();
+			
+			if(input14 == answer14) {
+				System.out.println("정답 : " + answer14 + ", 시도한 횟수 : "+count);
+				break;
+			} else if(answer14 > input14) {
+				System.out.println("더 큰 수를 입력하세요.");
+			} else if(answer14 < input14) {
+				System.out.println("더 작은 수를 입력하세요.");
+			}
+		} while(true);
+		
+		// 4-15 회문수(숫자를 거꾸로 읽어도 앞으로 읽은 것과 같은 것)
+		System.out.println("=====4-15=====");
+		int number15 = 12345;
+		int tmp = number15;
+		
+		int result15 = 0;	// 변수 number를 거꾸로 변환해서 담을 변수
+		
+		while(tmp != 0) {
+			
+		}
+		
+		if(number15==result15) {
+			System.out.println(number15 + "는 회문수 입니다.");
+		}else {
+			System.out.println(number15 + "는 회문수가 아닙니다.");
+		}
 		
 		
 	} // main

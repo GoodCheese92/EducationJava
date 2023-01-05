@@ -1,4 +1,4 @@
-package problem;
+package problem.standard_of_java.chapter3;
 
 public class Study_230102_chapter3 {
 	public static void main(String[] args) {
