@@ -5,9 +5,9 @@ public class Ex5_work {
 		// 10 + 5 = 15
 		// 8 * 3 = 24
 		
-		int su1 = 10;
+		int su1 = 3;
 		int su2 = 5;
-		char op = '%';	// +, -, *, /, % 중 하나 원하는 연산자 넣기
+		char op = '+';	// +, -, *, /, % 중 하나 원하는 연산자 넣기
 		
 		switch(op) {
 		case '+':
@@ -27,5 +27,5 @@ public class Ex5_work {
 			break;		
 		} //switch
 		
-	} // main
-} // end class
+	} // end of main
+} // end of class

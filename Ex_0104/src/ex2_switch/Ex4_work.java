@@ -6,7 +6,7 @@ public class Ex4_work {
 		// 2) 4월은 30일까지 있습니다.
 		// 3) 13월은 없습니다.
 		// 4) 2월은 28일 또는 29일까지 있습니다.
-		int month = 23;
+		int month = 13;
 		int date1 = 30;
 		int date2 = 31;
 		int date3 = 28;
@@ -81,7 +81,6 @@ public class Ex4_work {
 
 		System.out.println("-----------------------------------");
 		// 방법 3
-		int n = 0;
 		int date = 0;
 		if (month == 2) {
 			date = 28;
@@ -113,16 +112,19 @@ public class Ex4_work {
 
 		// 방법 4
 		System.out.println("------------------------------");
-		int month1 = 2;
-		switch (month1) {
+		switch (month) {
 		case 2:
-			System.out.println(month1 + "월은 28일까지입니다.");
+			System.out.println(month + "월은 28일까지입니다.");
 			break;
-		case 1: case 3:	case 5:	case 7:	case 8:	case 10: case 12:
-			System.out.println(month1 + "월은 31일까지입니다.");
+		case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+			System.out.println(month + "월은 31일까지입니다.");
 			break;
-		case 4:	case 6:	case 9:	case 11:
-			System.out.println(month1 + "월은 30일까지입니다.");
-		} // main
-	}
+		case 4: case 6: case 9: case 11:
+			System.out.println(month + "월은 30일까지입니다.");
+			break;
+		default:
+			System.out.println(month + "월은 없습니다.");
+			break;
+		} // switch
+	} // main
 }

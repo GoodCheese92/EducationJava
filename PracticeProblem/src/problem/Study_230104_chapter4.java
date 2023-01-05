@@ -146,10 +146,14 @@ public class Study_230104_chapter4 {
 		System.out.println("=====4-10=====");
 		int num10 = 12345;
 		int sum10 = 0;
-		
-		for(int i=0;;) {
-			num10/
+		for(int i = 1; num10 <10; i *= 10) {
+			sum10 += num10%10;
+			System.out.print(sum10+" ");
+			num10 = num10/10;
+			System.out.print(num10+"<- ³ª¸ÓÁö ");
 		}
+		System.out.println(sum10);
+		
 		
 		
 	} // main
