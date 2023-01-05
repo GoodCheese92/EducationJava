@@ -23,16 +23,18 @@ public class Ex1_work {
 		//     * * * * *
 		//   * * * * * * *
 		// * * * * * * * * *
+		
+		
 		for (int i = 1; i <= 5; i++) {
-			for (int j = 0; j < i*2-1; j++) {
-				if(j%2==0){
-					System.out.print("*");					
-				}else {
-					System.out.print(" ");
-				}
+			for (int j = 0; j < (5 - i) * 2; j++) {
+				System.out.print(" ");
+			}
+			for (int j = 1; j <= i * 2 - 1; j++) {	// 2n-1 : 별의 개수
+				System.out.print("* ");				
 			}
 			System.out.println();
 		}
-
+		
+		
 	} // end of main
 } // end of class

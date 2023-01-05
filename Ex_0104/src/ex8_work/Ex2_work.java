@@ -11,18 +11,19 @@ public class Ex2_work {
 		// 10 1 2 3 4 5 6 7 8 9
 
 		// 총 100개의 숫자를 출력하시오
+		int a = 1;
 		
-		int s = 11;
-		for (int i = 1; i <= s; i++) {
-			for (int j = i; j < i+s; j++) {
-				if (j <= s) {
+		for (int i = 1; i <= 10; i++) {
+			for (int j = a; j < a+10; j++) {
+				if (j <= 10) {
 					System.out.print(j + " ");
 				} else {
-					System.out.print((j%s) + " ");
+					System.out.print((j%10) + " ");
 				
 				}
 			} // inner
 			System.out.println();
+			a++;			
 		} // outer
 
 	} // end of main
