@@ -12,19 +12,43 @@ public class Ex2_work {
 
 		// 총 100개의 숫자를 출력하시오
 		int a = 1;
-		
+
 		for (int i = 1; i <= 10; i++) {
-			for (int j = a; j < a+10; j++) {
+			for (int j = a; j < a + 10; j++) {
 				if (j <= 10) {
 					System.out.print(j + " ");
 				} else {
-					System.out.print((j%10) + " ");
-				
+					System.out.print((j % 10) + " ");
 				}
 			} // inner
 			System.out.println();
-			a++;			
+			a++;
 		} // outer
 
+		System.out.println("------------------------------------");
+
+		// 강사님 코드
+		for (int i = 1; i <= 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				int num = i + j;
+				if (num > 10) {
+					num -= 10;
+				}
+				System.out.print(num + " ");
+			} // inner
+			System.out.println();
+		} // outer
+
+		System.out.println("------------------------------");
+		
+		// 1부터 n까지의 총 합을 출력하시오.
+		// 결과 : 15
+		int n = 10;
+		int sum = 0;
+		for(int i = 1; i <= n; i++) {
+			sum += i;
+		}
+		System.out.println("sum : " + sum);			
+		
 	} // end of main
 } // end of class
