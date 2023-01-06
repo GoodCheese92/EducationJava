@@ -76,10 +76,12 @@ public class Study_230104_chapter4 {
 		// 4-3 1+(1+2)+(1+2+3)+....
 		System.out.println("=====4-3=====");
 		int sum3 = 0;
+		int totalSum = 0;
 		for (int i = 0; i < 11; i++) {
 			sum3 += i;
+			totalSum += sum3;
 		}
-		System.out.println(sum3);
+		System.out.println(totalSum);
 
 		// 4-4 1+(-2)+3+(-4)+..., 총합이 100 이상이 될 때 출력
 		System.out.println("=====4-4=====");
@@ -154,7 +156,18 @@ public class Study_230104_chapter4 {
 			num10 /= 10;
 		}
 		System.out.println(sum10);
-
+		
+		System.out.println("----4-10 for문으로------");
+		
+		num10 = 1234548;
+		sum10 = 0;
+		for(int i = num10; i>0;) {
+			sum10 += i % 10;
+			i /= 10;
+		}
+		System.out.println(sum10);
+		
+		
 		// 4-11 피보나치 수열 1, 1, 2, 3, 5, 8, ... -> 10번 째 수 구하기
 		System.out.println("=====4-11=====");
 		int num11_1 = 1;
@@ -181,6 +194,9 @@ public class Study_230104_chapter4 {
 			}
 			System.out.println();
 		}
+		
+		System.out.println("----------4-12 두번째 방법---------------");
+		
 
 		// 4-13 다음 주어진 문자열(value)이 숫자인지 판별
 		System.out.println("=====4-13=====");
