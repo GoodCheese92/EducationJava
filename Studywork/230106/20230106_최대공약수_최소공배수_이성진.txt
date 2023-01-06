@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class Ex4_work {
 	public static void main(String[] args) {
-		// µÎ ¼öÀÇ ÃÖ´ë°ø¾à¼ö, ÃÖ¼Ò°ø¹è¼ö ±¸ÇÏ±â
+		// ë‘ ìˆ˜ì˜ ìµœëŒ€ê³µì•½ìˆ˜, ìµœì†Œê³µë°°ìˆ˜ êµ¬í•˜ê¸°
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("¼ö1À» ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.print("ìˆ˜1ì„ ìž…ë ¥í•˜ì„¸ìš” : ");
 		int a = sc.nextInt();
-		System.out.print("¼ö2À» ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.print("ìˆ˜2ì„ ìž…ë ¥í•˜ì„¸ìš” : ");
 		int b = sc.nextInt();
 
 		int ss = 0;
@@ -20,7 +20,6 @@ public class Ex4_work {
 			a = b;
 			b = c;
 		}
-		//boltang22@gmail.com
 		
 		for(int i = a; i >= 1; i--) {
 			if(a%i == 0 && b%i == 0) {
@@ -29,9 +28,9 @@ public class Ex4_work {
 			}
 		}
 		
-		System.out.println("ÃÖ´ë°ø¾à¼ö : " + ss);
+		System.out.println("ìµœëŒ€ê³µì•½ìˆ˜ : " + ss);
 		
-		System.out.println("ÃÖ¼Ò°ø¹è¼ö : " + (a*b/ss));
+		System.out.println("ìµœì†Œê³µë°°ìˆ˜ : " + (a*b/ss));
 
 	} // end of main
 } // end of class
