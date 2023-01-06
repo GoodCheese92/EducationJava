@@ -13,12 +13,10 @@ public class Ex2_work {
 		arr[4] = 1;
 		arr[5] = 15;
 		
-		int a = 0;
+		int a = arr[0];
 		for(int i=0;i<arr.length;i++) {
 			if(a<arr[i]) {
 				a = arr[i];
-			}else {
-				a = a;
 			}
 
 		}

@@ -29,7 +29,7 @@ public class Ex3_work {
 				
 			}
 		
-		} else if(num == 2){
+		}else if(num == 2){
 			System.out.println(num + "은(는) 소수입니다.");
 		}else {
 			System.out.println("소수가 아님");
