@@ -1,29 +1,28 @@
 package problem;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int A = sc.nextInt();
-		int B = sc.nextInt();
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-		int C = sc.nextInt();
+		int N = Integer.parseInt(br.readLine());
 
-		sc.close();
-
-		int total = 0;
-
-		if (A == B && A == C) {
-			total = 10000 + A * 1000;
-		} else if (A == B || A == C || B == C) {
-			total = 1000 + A * 100;
-			if (B == C)
-				total = 1000 + B * 100;
-		} else {
-			total = Math.max(A, Math.max(B, C)) * 100;
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				if (i + j > N - 2) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println();
 		}
-		System.out.println(total);
 
 	}
 }
