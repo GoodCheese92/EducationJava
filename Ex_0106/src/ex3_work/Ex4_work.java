@@ -20,7 +20,8 @@ public class Ex4_work {
 			a = b;
 			b = c;
 		}
-		//boltang22@gmail.com
+		// ÇöÁØ¾¾ ¸ÞÀÏ
+		// boltang22@gmail.com
 		
 		for(int i = a; i >= 1; i--) {
 			if(a%i == 0 && b%i == 0) {
