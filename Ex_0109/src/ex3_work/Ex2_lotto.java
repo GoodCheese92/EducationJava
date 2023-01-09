@@ -16,13 +16,14 @@ public class Ex2_lotto {
 
 		int i=0;
 		do {
-			lotto[i] = rnd.nextInt(45)+1;
-			i++;
+			lotto[i] = rnd.nextInt(45)+1;	// 1~45 사이의 난수 생성
+			i++;		// 안의 for문에서 계산하기 위해 여기서 증감
+			
 			for (int j = 0; j < lotto.length; j++) {
-				if(i-1==j) {
-					continue;
-				}else if(lotto[i-1] == lotto[j]) {
-					i--;
+				if(i-1==j) {	// 인덱스로 비교
+					continue;	
+				}else if(lotto[i-1] == lotto[j]) {	// i번 째를 기준으로 다 비교
+					i--;							// 같은면 i--로 i번째 난수 다시 생성
 					break;
 				}
 			}

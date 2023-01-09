@@ -7,14 +7,35 @@ public class Ex1_Baseball {
 	public static void main(String[] args) {
 		// 이전에 제작한 숫자야구 게임을
 		// 배열을 사용하여 코드를 줄여보세요.
-		int com[] = new int[3];
+		int size = 4;
+		int com[] = new int[size];
 		Random rnd = new Random();
-
+//		int x = 0;
+		boolean isCom = false;
+		
 		do {
+			// com[0~2]까지 난수생성
 			for (int i = 0; i < com.length; i++) {
+				
 				com[i] = rnd.nextInt(9) + 1;
+				
+				// 중복 수 비교
+				for(int j = 0; j<com.length; j++) {
+					if(com[i] == com[j]) {
+						if(i == j) {
+							continue;
+						}else {
+							isCom = true;
+							i--;;							
+						}
+					}else {
+						isCom = false;
+					}
+				}
+				
 			}
-		} while (com[0] == com[1] || com[0] == com[2] || com[1] == com[2]);
+			
+		} while (isCom);
 
 		System.out.print("com : ");
 		for (int i = 0; i < com.length; i++) {
@@ -51,9 +72,9 @@ public class Ex1_Baseball {
 			
 			System.out.println("strike : " + strike + ", ball : "+ball);
 
-		} while (strike != 3);
+		} while (strike != size);
 		
-		System.out.println("Out!!, 시도횟수 : "+count);
+		System.out.println("정답!!, 시도횟수 : "+count);
 
 		System.out.println();
 	} // end of main
