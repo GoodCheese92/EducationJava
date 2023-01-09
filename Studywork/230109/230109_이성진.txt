@@ -1,0 +1,98 @@
+package ex3_work;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Ex1_Baseball {
+	public static void main(String[] args) {
+		// 이전에 제작한 숫자야구 게임을
+		// 배열을 사용하여 코드를 줄여보세요.
+		int com[] = new int[3];
+		Random rnd = new Random();
+
+		do {
+			for (int i = 0; i < com.length; i++) {
+				com[i] = rnd.nextInt(9) + 1;
+			}
+		} while (com[0] == com[1] || com[0] == com[2] || com[1] == com[2]);
+
+		System.out.print("com : ");
+		for (int i = 0; i < com.length; i++) {
+			System.out.print(com[i] + "");
+		}
+		System.out.println();
+
+		Scanner sc = new Scanner(System.in);
+
+		int strike = 0;
+		int ball = 0;
+		int count = 0;
+		int[] u = new int[com.length];
+
+		int a = 0;
+		do {
+			strike = 0;
+			ball = 0;
+			for(int i=0; i<com.length; i++) {
+				System.out.print("수"+(i+1)+" 를 입력하세요.(한자리) : ");
+				u[i] = sc.nextInt();							
+			}
+			count++;
+			
+			for (int i = 0; i < com.length; i++) {
+				for (int j = 0; j < com.length; j++) {
+					if (i == j && com[i] == u[j]) {
+						strike++;
+					} else if(i != j && com[i]==u[j]) {
+						ball++;
+					}
+				}
+			}
+			
+			System.out.println("strike : " + strike + ", ball : "+ball);
+
+		} while (strike != 3);
+		
+		System.out.println("Out!!, 시도횟수 : "+count);
+
+		System.out.println();
+	} // end of main
+} // end of class
+
+---------------------------------------------------------------------------
+package ex3_work;
+
+import java.util.Random;
+
+public class Ex2_lotto {
+	public static void main(String[] args) {
+		// 1~45 사이의 중복되지 않는 난수 6개를 만들어 lotto 배열에 담고
+		// 최종적으로 lotto 배열에 담긴 값들을 출력하시오.
+
+		// 15 2 41 17 6 9
+		// 추후에 보너스 번호로 번호 하나가 추가되더라도 잘 작동하도록 만드시오.
+
+		int[] lotto = new int[6];
+
+		Random rnd = new Random();
+
+		int i=0;
+		do {
+			lotto[i] = rnd.nextInt(45)+1;
+			i++;
+			for (int j = 0; j < lotto.length; j++) {
+				if(i-1==j) {
+					continue;
+				}else if(lotto[i-1] == lotto[j]) {
+					i--;
+					break;
+				}
+			}
+		}while(i<lotto.length);
+		
+		for(int e : lotto) {
+			System.out.print(e+" ");
+		}
+
+	} // end of main
+} // end of class
