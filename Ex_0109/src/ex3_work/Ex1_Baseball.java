@@ -76,6 +76,8 @@ public class Ex1_Baseball {
 		
 		System.out.println("정답!!, 시도횟수 : "+count);
 
-		System.out.println();
+		System.out.println("----------------------------------------");
+		
+		
 	} // end of main
 } // end of class
