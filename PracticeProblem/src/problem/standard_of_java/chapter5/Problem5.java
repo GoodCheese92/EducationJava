@@ -13,7 +13,7 @@ public class Problem5 {
 			
 			tmp = ballArr[0];
 			
-			ballArr[i] = j;
+			
 			
 			
 			
