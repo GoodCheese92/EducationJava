@@ -14,7 +14,7 @@ public class Ex3_multi_array {
 		num[1][0] = 40;
 		num[1][1] = 50;
 		
-		// num배열의 모든 값을 출력
+		// num 배열의 모든 값을 출력
 		for(int i=0; i<num.length;i++) {
 			for(int j=0; j<num[i].length; j++) {
 				System.out.print(num[i][j]+" ");
