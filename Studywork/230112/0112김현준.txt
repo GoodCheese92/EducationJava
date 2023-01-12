@@ -1,0 +1,116 @@
+//Calculator
+
+package ex7_work;
+
+public class Calculator {
+
+	public void getResult(String s, int su1, int su2) {
+		switch (s) {
+		case "+":
+			System.out.printf("%d %s %d = %d", su1, s, su2, (su1 + su2));
+			break;
+		case "-":
+			System.out.printf("%d %s %d = %d", su1, s, su2, (su1 - su2));
+			break;
+		case "/":
+			System.out.printf("%d %s %d = %d", su1, s, su2, (su1 / su2));
+			break;
+		case "*":
+			System.out.printf("%d %s %d = %d", su1, s, su2, (su1 * su2));
+			break;
+
+		default:
+			break;
+		}
+	}
+}
+
+//CalMain
+
+package ex7_work;
+
+import java.util.Scanner;
+
+public class CalMain {
+	public static void main(String[] args) {
+		/*
+		 * 수1, 수2 연산자를 result() 메서드로 전달하여
+		 * 결과를 출력하시오
+		 * 수1
+		 * 수2
+		 * 연산자
+		 * 
+		 */
+		
+		Scanner sc = new Scanner(System.in);
+		int su1 = 0;
+		int su2 = 0;
+		String op = "";
+		Calculator cal = new Calculator();
+		System.out.print("수 1 : ");
+		su1 = sc.nextInt();
+		System.out.print("수 2 : ");
+		su2 = sc.nextInt();
+		System.out.print("연산자 : ");
+		op = sc.next();
+		cal.getResult(op, su1, su2);
+		
+		
+	}
+}
+
+// Graph
+
+package ex8_work;
+
+public class Graph {
+
+	public int[] coordinateValue(int[] arr) {
+		int[] value = new int[10];
+		for (int i = 0; i < arr.length; i++) {
+			value[arr[i]]++;
+		}
+		return value;
+	}
+
+	public void showGraph(int[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+				System.out.printf("%d의 갯수\t: ", i);
+			for (int j = 0; j < arr[i]; j++) {
+				System.out.print("#");
+			}
+			System.out.printf(" (%d)\n", arr[i]);
+		}
+	}
+}
+
+// GraphMain
+
+package ex8_work;
+
+import java.util.Random;
+
+public class GraphMain {
+	public static void main(String[] args) {
+		/*
+		 * 0~9 사이의 난수를 100개 만들어서 저장
+		 * 
+		 * 111214124.....
+		 * 0의 갯수	: #### 4
+		 * 1의 갯수	: ##### 5
+		 * ...
+		 * 9의 갯수	: ### 3
+		 */
+		Random rnd = new Random();
+		Graph gra = new Graph();
+		int[] random = new int[100];
+		for(int i = 0; i < random.length; i++) {
+			random[i] = rnd.nextInt(10);
+		}
+		int[] value = gra.coordinateValue(random);
+		
+		gra.showGraph(value);
+		
+
+	}
+}

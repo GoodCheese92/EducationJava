@@ -2,8 +2,7 @@ package ex8_work;
 
 import java.util.Random;
 
-public class Graph {
-
+public class Graph2 {
 	public void getGraph(int a, int n, int size) { // a, n : a~n 까지 랜덤 수 범위, size : 랜덤 수가 만들어지는 개수
 
 		Random rnd = new Random();
@@ -14,26 +13,33 @@ public class Graph {
 		for (int i = 0; i < num.length; i++) {
 			num[i] = rnd.nextInt(n - a + 1) + a;
 		}	
+
+		// 
+		int[] num2 = new int[n-a+1];
 		
 		String[] str = new String[n - a + 1];
-
+		
+		for(int i=0; i<size; i++) {
+			num2[num[i]]++;
+		}
 		
 		int count2 = 0;
-		// str 배열에 같은 수 만큼 비교해서 저장 및 출력
-		for (int i = a; i <= n; i++) {
-			str[i] = "";	// str배열이 null로 출력되는거 방지
+		
+		for(int i=0; i<num2.length; i++) {
 			int count = 0;
-			for (int j = 0; j < size; j++) {
-				if (i == num[j]) {
-					str[i] += "#";
-					count++;
-					count2++;
-				}
-			} // inner
-			System.out.println(i+"의 개수 : "+str[i]+"\t"+count+"개");
-		} // outer
+			System.out.print(i+"의 개수 : ");
+			for(int j=0; j<num2[i];j++) {
+				System.out.print("#");
+				count++;
+				count2++;
+			}
+			System.out.print("\t"+count+"개");
+			System.out.println();
+		}
+		
 		System.out.println("총 갯수: "+ count2);
 
 	}
-
+	
+	
 } // end of class

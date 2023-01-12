@@ -22,6 +22,11 @@ public class GraphMain {
 		int size = sc.nextInt();
 		
 		graph.getGraph(x1, x2, size);
+		System.out.println("--------------------------------");
+		
+		Graph2 g2 = new Graph2();
+		
+		g2.getGraph(x1, x2, size);
 		
 	} // end of main
 } // end of class
