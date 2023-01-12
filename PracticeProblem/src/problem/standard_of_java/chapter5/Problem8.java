@@ -7,17 +7,16 @@ public class Problem8 {
 		int[] counter = new int[4];
 
 		for (int i = 0; i < answer.length; i++) {
-			/*
-			 * 작성
-			 */
+			for(int j=0; j<counter.length; j++) {
+				if(answer[i] - 1 == j)
+				counter[j]++;
+			}
 		}
-
+		
 		for (int i = 0; i < counter.length; i++) {
-			/*
-			 * 작성
-			 */
-
-			
+			for(int j = 0; j<counter[i]; j++) {
+				System.out.print("*");
+			}
 			System.out.println();
 		}
 
