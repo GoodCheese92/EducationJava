@@ -1,0 +1,53 @@
+
+	public void getGraph(int a, int n, int size) { // a, n : a~n 까지 랜덤 수 범위, size : 랜덤 수가 만들어지는 개수
+
+		Random rnd = new Random();
+
+		int[] num = new int[size];	// size 만큼 배열 생성
+
+		// 랜덤 수 생성
+		for (int i = 0; i < num.length; i++) {
+			num[i] = rnd.nextInt(n - a + 1) + a;
+		}	
+
+		String[] str = new String[n - a + 1];
+		
+		int count2 = 0;
+		// str 배열에 같은 수 만큼 비교해서 저장 및 출력
+		for (int i = a; i <= n; i++) {
+			str[i] = "";	// str배열이 null로 출력되는거 방지
+			int count = 0;
+			for (int j = 0; j < size; j++) {
+				if (i == num[j]) {
+					str[i] += "#";
+					count++;
+					count2++;
+				}
+			} // inner
+			System.out.println(i+"의 개수 : "+str[i]+"\t"+count+"개");
+		} // outer
+		System.out.println("총 갯수: "+ count2);
+
+	}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+public static void main(String[] args) {
+		// 0 ~ 9 사이의 난수를 100개 만들어서 저장
+		// 각각의 개수를 판단 후 더해서 100인지 확인 -> 그래프화를 통해서
+		// 0의 갯수 : ###### 6
+		// 1의 갯수 : ######### 9
+		// ...
+		// 9의 갯수 : ##### 4
+		
+		Graph graph = new Graph();
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("랜덤 수 범위(시작) : ");
+		int x1 = sc.nextInt();
+		System.out.print("랜덤 수 범위(끝) : ");
+		int x2 = sc.nextInt();
+		System.out.print("랜덤 생성 개수 : ");
+		int size = sc.nextInt();
+		
+		graph.getGraph(x1, x2, size);
+		
