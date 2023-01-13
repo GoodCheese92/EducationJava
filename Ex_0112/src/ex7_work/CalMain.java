@@ -24,7 +24,11 @@ public class CalMain {
 		int su2 = sc.nextInt();
 		
 		
+		
 		c1.getResult(su1, str, su2);
+		
+		Calculator_ex cal = new Calculator_ex();
+		cal.getResult(str, su1, su2);
 		
 	} // end of main
 } // end of class

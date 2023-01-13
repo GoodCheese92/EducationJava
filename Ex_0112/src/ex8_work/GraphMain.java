@@ -1,5 +1,6 @@
 package ex8_work;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class GraphMain {
@@ -27,6 +28,23 @@ public class GraphMain {
 		Graph2 g2 = new Graph2();
 		
 		g2.getGraph(x1, x2, size);
+		
+		System.out.println("----------------------------------");
+		
+		// °­»ç´Ô ÄÚµå
+		
+		Random rnd = new Random();
+		int[] nArr = new int[10];
+		for(int i=0; i<100; i++) {
+			int r = rnd.nextInt(10);
+			System.out.print(r);
+			nArr[r]++;
+		}
+		
+		System.out.println();
+		
+		Graph_ex pg = new Graph_ex();
+		pg.print(nArr);
 		
 	} // end of main
 } // end of class
