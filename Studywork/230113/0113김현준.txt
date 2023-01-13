@@ -1,0 +1,163 @@
+// main
+
+package ex5_work;
+
+import java.util.Scanner;
+
+public class VendingMain {
+	public static void main(String[] args) {
+		
+		// 키보드에서 금액을 입력받고
+		// 해당 금액 범위안에서 마실 수 있는 음료의 목록만 화면에 출력
+		// 음료를 선택하면 제공 및 잔액을 반환
+		// insert coin : 1000
+		// 환타 - 1000
+		// 콜라 - 900
+		// 사이다 - 900
+		// >> 콜라
+		// 콜라 (을)를 선택하셨습니다.
+		// 잔액 100원
+
+		String[][] drinks = { { "코카콜라", "1800" }, { "코카제로", "2000" }, { "펩시", "1500" }, { "펩시제로", "1600" },
+				{ "칠성사이다", "1600" }, { "칠성제로", "1800" }, { "데자와", "1200" }, { "데미소다", "1200" }, { "비타500", "1000" },
+				{ "마운틴듀", "1100" } };
+		
+		Scanner sc = new Scanner(System.in);
+		Vending vnd = new Vending();
+		vnd.setDrk(drinks);
+		vnd.showDrinks();
+		
+		System.out.print("insert coin >> ");
+		int coin = sc.nextInt();
+		
+		while(true) {
+			vnd.showDrinks(coin);
+			System.out.printf(">> ");
+			String drink = sc.next();
+			if(vnd.chooseDrink(drink)) {
+				break;
+			}	
+		}	
+	}
+}
+
+// vending
+
+package ex5_work;
+
+public class Vending {
+
+	private int money; // 현재 자판기가 가지고 있는 돈
+	private Drink[] drk; // 음료수 이름과 가격을 객체화
+
+	public int getMoney() {
+		return money;
+	}
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
+
+	public Drink[] getDrk() {
+		return drk;
+	}
+
+	public void setDrk(String[][] drk) { // 주어진 이중배열을 내 입맛에 맞게 drk[] 클래스 선언하여 값 대입
+		this.drk = new Drink[drk.length];
+		for (int i = 0; i < drk.length; i++) {
+			this.drk[i] = new Drink(); // drk[] 클래스 선언
+			this.drk[i].setName(drk[i][0]); // 값 대입
+			this.drk[i].setPrice(Integer.parseInt(drk[i][1])); // 값 대입
+		}
+	}
+
+	public void showDrinks() { // 모든 음료수 목록 출력
+		int count = 0;
+		System.out.println("-------------------------------------------");
+		for (int i = 0; i < drk.length; i++) {
+			if (count < 3) {
+				System.out.printf("%s(%d)\t", drk[i].getName(), drk[i].getPrice());
+				count++;
+			} else {
+				System.out.print("\n\n");
+				count = 0;
+			}
+		}
+		System.out.print("\n-------------------------------------------\n");
+	}
+
+	public void showDrinks(int money) { // 내가 넣은 돈 이하의 가격을 가진 음료수 목록 출력
+		this.money = money;
+		int count = 0;
+		System.out.println("-------------------------------------------");
+		for (int i = 0; i < drk.length; i++) {
+			if(count < 3) {
+				if (money > drk[i].getPrice()) {
+					drk[i].setBuy(true); // 해당 음료수를 구매할 수 있으므로 true로 바꿔준다.
+					System.out.printf("%s(%d)\t", drk[i].getName(), drk[i].getPrice()); // 형식에 맞게 출력
+				} else {
+					int leng = drk[i].getName().length() + Integer.toString(drk[i].getPrice()).length() + 2;
+					for(int j = 0; j < leng; j++) {
+						System.out.print(" ");
+					}
+					System.out.print("\t");
+				}
+				count++;
+			} else {
+				System.out.print("\n\n");
+				count = 0;
+			}
+		}
+		System.out.print("\n-------------------------------------------\n");
+	}
+
+	public boolean chooseDrink(String drink) { // 내가 음료수를 골랐을때 고른 음료수와 잔액 반환(예외처리)
+		boolean isTrue = false;
+		for (int i = 0; i < drk.length; i++) {
+			if (drk[i].getName().equals(drink) && drk[i].getBuy()) { 
+				// 구매가능 목록중 내가 입력한 음료수와 같은가 ? && 구매가능이면 drk.buy == true
+				money -= drk[i].getPrice(); // 잔액 계산
+				System.out.printf("%s (을)를 선택하셨습니다.\n잔액 : %d", drk[i].getName(), money);
+				isTrue = true; // while루프 벗어나기
+				return isTrue;
+			}
+		}
+		System.out.println("음료수를 잘못 골랐습니다. 다시 골라주세요.");
+		return isTrue; // while루프 다시돔
+	}
+}
+
+// drink
+
+package ex5_work;
+
+public class Drink {
+	private String name; // 음료수 이름
+	private int price; // 음료수 가격
+	private boolean buy = false; // 해당 음료수를 살수 있는지 여부 판단
+
+	public boolean getBuy() {
+		return buy;
+	}
+
+	public void setBuy(boolean buy) {
+		this.buy = buy;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+}
