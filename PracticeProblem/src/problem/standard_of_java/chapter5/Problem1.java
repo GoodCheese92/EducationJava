@@ -6,14 +6,16 @@ public class Problem1 {
 		// a
 		int[] arr_a[];
 		
-		// b : 뒤에 쉼표가 붙어있다.
-		// int[] arr_b = {1, 2, 3,};
+		// b : 뒤에 쉼표가 붙어 있어도 상관 없다.
+		int[] arr_b = {1, 2, 3,};
 		
 		// c
 		int[] arr_c = new int[5];
 		
-		// d : 선언과 대입을 한 번에 할 수 없다.
-		// int[] arr_d = new int[5] {1, 2, 3, 4, 5};
+		// d : 선언과 대입을 한 번에 할 수 없다. 만약 하려면 []안에 숫자가 없어야 한다.
+		 int[] arr_d;
+		 
+		 arr_d = new int[] {1, 2, 3, 4, 5};
 		
 		// e : 자료형이나 변수명 옆에 배열의 크기 선언 X
 		//int arr_e[5];

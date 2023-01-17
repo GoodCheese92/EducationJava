@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Ex_work {
 	public static void main(String[] args) {
-		// Å°º¸µå¿¡¼­ ÀÔ·Â¹ŞÀº °ªÀ» ¾ÏÈ£Ç¥´ë·Î ¾ÏÈ£È­ ÇÏ½Ã¿À.
-		// °ª : abc123
-		// °á°ú : `~!wer
+		// í‚¤ë³´ë“œì—ì„œ ì…ë ¥ë°›ì€ ê°’ì„ ì•”í˜¸í‘œëŒ€ë¡œ ì•”í˜¸í™” í•˜ì‹œì˜¤.
+		// ê°’ : abc123
+		// ê²°ê³¼ : `~!wer
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -15,7 +15,7 @@ public class Ex_work {
 		
 		char[] answer2 = {'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'};
 		
-		System.out.print("°ª : ");
+		System.out.print("ê°’ : ");
 		String res = sc.next();
 		String answer = "";
 		
@@ -31,7 +31,7 @@ public class Ex_work {
 			}
 		} // for
 		
-		System.out.println("°á°ú : "+answer);
+		System.out.println("ê²°ê³¼ : "+answer);
 		
 		
 		
