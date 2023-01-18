@@ -31,5 +31,10 @@ public class Chapter6Main {
 		Problem7 p7 = new Problem7(1, 1);
 		p7.getDistance(2, 2);
 		
+		System.out.println("======6-9=====");
+		
+		
+		
+		
 	} // end of main
 } // end of class
