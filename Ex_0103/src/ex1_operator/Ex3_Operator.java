@@ -19,12 +19,13 @@ public class Ex3_Operator {
 		b--; // 11 b-- 11
 		b--; // 10 b-- 10
 		b++; // 9  b++ 9
-		++b; // 10 b++ 10
+		++b; // 10 b++ 11
 		System.out.println(b--);
 		
 		// 증감연산자는 한번에 1씩만 제어가 가능하므로
 		// 2 이상의 증감을 하려면 대입연산자를 사용하는 것이 좋다.
 		b += 2;
+		System.out.println(b);
 		
 		System.out.println("-----------------------");
 		
