@@ -51,6 +51,15 @@ public class Ex2_String_Method {
 		name2 = name2.replaceAll(".", "/");	//.앞은 모두 한 묶음으로 생각하기 때문에 전부 변경됨
 		System.out.println("replaceAll : "+name2);
 		
+		name = "Kims Lees Park";
+		name2 = "Kims Lees Park";
+		
+		name = name.replace('s', 'o');
+		name2 = name2.replaceAll("s", "o");
+		
+		System.out.println(name);
+		System.out.println(name2);
+		
 		// 6. trim
 		String id = "  hi hello  ";
 		id = id.trim();		// 문장 앞뒤의 의미없는 공백을 제거
@@ -61,7 +70,7 @@ public class Ex2_String_Method {
 		String[] id2 = id.split(" ");	// 특정 문장을 기준으로 배열 형태로 나눠서 저장해주는 메서드
 		System.out.println(id2[0]+" / "+id2[1]);
 		
-		// 8. equalsignoreCase
+		// 8. equalsIgnoreCase
 		String answer = "Apple";
 		if(answer.equalsIgnoreCase("apple")) {	// 대소문자 무시하고 같은지 비교
 			System.out.println("값이 같다.");

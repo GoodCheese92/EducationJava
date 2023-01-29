@@ -21,33 +21,26 @@ public class MapWork_ex {
 		map.put("kim", 1111);
 		map.put("park", 2222);
 		map.put("Lee", 3333);
-		
+
 		Scanner sc = new Scanner(System.in);
-		
+
 		System.out.print("id : ");
 		String id = sc.next();
-		
+
 		System.out.print("pwd : ");
 		int pwd = sc.nextInt();
-		
-		if(!map.containsKey(id)) {	// map.containsKey(id) == false
+
+		if (!map.containsKey(id)) { // map.containsKey(id) == false
 			System.out.println("아이디가 존재하지 않습니다.");
 		} else {
 			// 아이디가 존재하는 경우.
 			// 키보드에서 id와 key값이 일치하는 value값을 가져와서 pwd 변수와 비교
-			if(map.get(id) != pwd) {
+			if (map.get(id) != pwd) {
 				System.out.println("비밀번호 불일치");
-			}else {
+			} else {
 				System.out.println("로그인 성공!");
 			}
 		}
-		
-		
-		
-		
-		
+
 	} // end of main
 } // end of class
-
-
-

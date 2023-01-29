@@ -14,7 +14,7 @@ public class Ex1_Set {
 		
 		// Set을 직접 객체화 하는 것이 아니라, Set을 구현하는 HashSet을 이용한다.
 		// 오버라이딩 해야 하는 것이 많으므로(또한 다른 이유 등등으로)
-		// 제네릭에는 기본 자료형이 아닌 reference type을 써야 한다.
+		// 제네릭에는 기본 자료형이 아닌 wrapper class를 써야 한다.
 		
 		// Set : 특정 코드에서 중복된 값의 허용이 있어서는 안될 때 사용
 		HashSet<Integer> set1 = new HashSet<Integer>();

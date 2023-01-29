@@ -69,6 +69,8 @@ public class Ex1_String {
 		s1 = "bbb";		// s2의 값이 바뀌더라도 s1의 값이 변경되면 안되기 때문에 String 불변의 법칙이 무조건 필요함
 		s2 = "bbb";	
 		s2 = "ccc";
+		System.out.println(s1);
+		System.out.println(s2);
 		
 	} // end of main
 } // end of class

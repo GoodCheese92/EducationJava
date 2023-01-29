@@ -36,12 +36,8 @@ public class ThreadWork_ex extends Thread {
 				isCheck = false;
 				break;
 			}
-			
-			
-			
 		}
 	} // end of gameStart()
-	
 	
 	@Override
 	public void run() {
@@ -55,8 +51,5 @@ public class ThreadWork_ex extends Thread {
 		} // while
 	
 	}
-	
-	
-	
 	
 } // end of class

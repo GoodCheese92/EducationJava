@@ -28,19 +28,3 @@ public class Work_ex {
 
 	} // end of main
 } // end of class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -23,24 +23,6 @@ public class WorkMain_ex {
 		
 		work.start();	// run() - 타이머를 동작시킨다.
 		work.gameStart();
-		
-		
-		
-		
-		
-		
-		
-		
+
 	} // end of main
 } // end of class
-
-
-
-
-
-
-
-
-
-
-

@@ -6,7 +6,7 @@ public class InterMain {
 		// 직접적인 메모리 할당은 불가
 		// InterTest it = new InterTest();
 
-		// 그러므로 인터페이스를 구현한 자식클래스도
+		// 그러므로 인터페이스를 구현한 자식클래스가
 		// 생성될 때 부모인 인터페이스와 함께 메모리 할당을 받는다.
 		InterChild ic = new InterChild();
 		System.out.println(ic.getVALUE());

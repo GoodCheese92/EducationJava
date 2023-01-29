@@ -29,50 +29,21 @@ public class Vending {
 	public int outCan(String name) {
 		for (int i = 0; i < can.length; i++) {
 			if (can[i].getPrice() <= money) {
-				if(can[i].getCanName().equalsIgnoreCase(name)) {
+				if (can[i].getCanName().equalsIgnoreCase(name)) {
 					System.out.printf("%s을(를) 선택했습니다.\n", name);
-					money -= can[i].getPrice();	
+					money -= can[i].getPrice();
 					System.out.printf("잔액 : %d원\n", money);
 					break;
 				}
-			}else {
+			} else {
 				System.out.println("금액이 부족합니다.");
 				return money;
 			}
-			
-			
+
 		} // for
 		return money;
 	} // end of outCan()
-	
+
 	// 드래그 선택 후 ctrl + i 누르면 선택 부분만 정렬시켜준다.
 
 } // end of class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -9,27 +9,9 @@ public class OverMain {
 		ov.result("hello");
 		ov.result("hi", 100);
 		ov.result(100, "hi");
-		
+
 		System.out.println(100);
 		System.out.println("hi");
-		
-		
+
 	} // end of main
 } // end of class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

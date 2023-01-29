@@ -6,7 +6,7 @@ public class UpdownMain {
 	public static void main(String[] args) {
 		// 1 ~ 50 사이의 난수를 발생시킨다.
 		// 메인 클래스에서 정수값을 입력 받는다.
-		// 입력받은 값이 up, down, 장답인지를 판단
+		// 입력받은 값이 up, down, 정답인지를 판단
 		// 정답일 경우 main 클래스의 while문을 빠져나가도록 처리
 		
 		// 숫자 : 30
