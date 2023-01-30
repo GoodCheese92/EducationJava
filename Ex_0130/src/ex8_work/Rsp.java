@@ -48,10 +48,28 @@ public class Rsp implements Serializable {
 	} // end of constructor
 
 	Random rnd = new Random();
-
+	
+	public void showScore() {
+		System.out.printf("%d승 %d무 %d패\n", win_count, draw_count, lose_count);
+	}
+	
 	public void gameStart(int rsp_num) {
 		int npc = rnd.nextInt(3);
-		System.out.println("test용 : " + npc); // 확인용
+		String rsp = "";
+		switch(npc) {
+		case 0 :
+			rsp = "바위";
+			break;
+		case 1 :
+			rsp = "가위";
+			break;
+		case 2 :
+			rsp = "보";
+			break;
+		}
+		System.out.println("test용 : " + rsp); // 확인용
+		
+		
 		if (rsp_num == npc) { // 비긴다.
 			System.out.println("비겼습니다.");
 			draw_count++;
