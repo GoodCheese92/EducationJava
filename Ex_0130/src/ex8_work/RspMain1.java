@@ -31,7 +31,7 @@ public class RspMain1 {
 
 		Scanner sc = new Scanner(System.in);
 
-		String path = "D:/국비지원/embedded_LSJ/work/Ex_0130/src/ex8_work/";
+		String path = "C:\\embedded_LSJ\\work\\Ex_0130\\src\\ex8_work\\Rsp/";
 
 		System.out.print("id : ");
 		String id = sc.next();
