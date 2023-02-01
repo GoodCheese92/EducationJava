@@ -9,7 +9,5 @@ public class Ex4_ArrayClass {
 		arr.add("3");
 		System.out.println("setArr : " + arr);
 	} // end of setArr()
-	
-	
-		
+
 } // end of class

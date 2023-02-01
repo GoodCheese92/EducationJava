@@ -7,7 +7,7 @@ public class WordGameMain_ex {
 	public static void main(String[] args) {
 		ArrayList<String> arr = new ArrayList<String>();
 		String[] data = { "apple", "banana", "grape", "orange" };
-		
+
 		// 파라미터로 넘어간 것이 주소가 넘어갔기 때문에 메인에서도 변한다.
 		WordGame_ex wg = new WordGame_ex(arr, data);
 		wg.start(); // 쓰레드 시작

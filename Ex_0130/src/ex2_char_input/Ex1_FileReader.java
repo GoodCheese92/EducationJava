@@ -11,7 +11,7 @@ public class Ex1_FileReader {
 			fr = new FileReader("C:/embedded_LSJ/test.txt");
 
 			int code = -1;
-			
+
 			// fr.read()는 char은 유니코드 형태로 가져온다.
 			// 읽을 게 없으면 -1을 가져온다.
 			while ((code = fr.read()) != -1) {

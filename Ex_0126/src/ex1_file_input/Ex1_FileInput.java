@@ -26,10 +26,10 @@ public class Ex1_FileInput {
 					System.out.print((char) code);
 
 				} // while
-				
+
 				// 사용이 완료된 스트림은 반드시 닫아줘야 한다.
 				fis.close();
-				
+
 			} catch (Exception e) { // fis.read의 에러도 잡기 위해서 Exception으로 수정
 				e.printStackTrace();
 			}
@@ -38,8 +38,3 @@ public class Ex1_FileInput {
 
 	} // end of main
 } // end of class
-
-
-
-
-

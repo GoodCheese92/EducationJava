@@ -5,7 +5,8 @@ import java.awt.Color;
 public class MyFrameMain {
 	public static void main(String[] args) {
 		MyFrame mf1 = new MyFrame();
-		mf1.setBackground(Color.YELLOW);
+		Color c = new Color(0, 120, 51);
+		mf1.setBackground(c);
 		mf1.setTitle("«¡∑π¿”1");
 		
 		MyFrame mf2 = new MyFrame();

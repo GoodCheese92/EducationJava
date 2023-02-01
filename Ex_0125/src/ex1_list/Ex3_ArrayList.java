@@ -50,7 +50,7 @@ public class Ex3_ArrayList {
 
 			// 방법 3
 			for (int i = 0; i < sList.size(); i++) {
-				if(str.equals(sList.get(i))) {
+				if (str.equals(sList.get(i))) {
 					System.out.println("중복된 아이디");
 					continue outer;
 				}
