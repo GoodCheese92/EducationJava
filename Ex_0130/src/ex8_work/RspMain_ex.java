@@ -34,11 +34,11 @@ public class RspMain_ex {
 		System.out.print("id : ");
 		String id = sc.next();
 		rsp.setId(id);
-		
+
 		// 게임 로드
 		GameLoad_ex gl = new GameLoad_ex();
 		rsp = gl.scoreLoader(id);
-		if(rsp == null) {
+		if (rsp == null) {
 			rsp = new Rsp_ex();
 			rsp.setId(id);
 		} else {
@@ -78,25 +78,22 @@ public class RspMain_ex {
 				System.out.println("당신이 졌습니다.");
 				rsp.setLose(++lose);
 			}
-			
+
 			System.out.printf("%d승 %d무 %d패\n", win, draw, lose);
-			
+
 			System.out.print("한판 더? y | n : ");
 			String select = sc.next();
-			
-			if(!select.equalsIgnoreCase("y")) {
+
+			if (!select.equalsIgnoreCase("y")) {
 				System.out.println("게임 종료");
 				break;
 			}
-			
+
 		} // while
-		
+
 		// 게임 종료 후 rsp객체를 저장
 		GameSave_ex gs = new GameSave_ex();
 		gs.scoreWriter(rsp);
-		
-		
-		
-		
+
 	} // end of main
 } // end of class

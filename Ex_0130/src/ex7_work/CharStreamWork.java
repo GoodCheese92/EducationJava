@@ -73,7 +73,7 @@ public class CharStreamWork {
 				num_count++;
 			}
 		} // for
-		
+
 		System.out.println(str);
 		System.out.printf("대문자  : %d개\n", upper_count);
 		System.out.printf("소문자  : %d개\n", lower_count);

@@ -13,7 +13,7 @@ public class Ex2_BufferedReader {
 			br = new BufferedReader(fr);
 
 			String msg = "";
-			
+
 			// readLine() : 문자열로 읽는다. 읽는 줄이 없으면 null을 반환한다.
 			while ((msg = br.readLine()) != null) {
 				System.out.println(msg);

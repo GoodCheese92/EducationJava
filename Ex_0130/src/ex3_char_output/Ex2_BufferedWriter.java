@@ -16,7 +16,7 @@ public class Ex2_BufferedWriter {
 			bw.newLine(); // 내부적으로 \n(엔터값에 해당)을 실행하는 메서드
 			bw.write("두번 째 줄");
 
-			bw.flush();	// 물리적으로 내용을 기록
+			bw.flush(); // 물리적으로 내용을 기록
 
 		} catch (Exception e) {
 			// TODO: handle exception
