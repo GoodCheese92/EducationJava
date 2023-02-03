@@ -33,14 +33,19 @@ public class ChatClient extends JFrame implements Runnable {
 	public ChatClient() {
 		setBounds(1200, 100, 400, 500);
 		setLayout(null);
+		
+		Font font = new Font("궁서체", Font.BOLD, 15);
+		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 200, 51));
 
 		area = new JTextArea();
-		area.setBounds(10, 10, 370, 390);
+		area.setBounds(10, 10, 375, 390);
+		area.setFont(font);
 
 		input = new JTextField();
 		input.setBounds(10, 410, 300, 50);
+		input.setFont(font);
 
 		send_bt = new JButton("전송");
 		send_bt.setBounds(320, 410, 60, 50);
@@ -73,8 +78,8 @@ public class ChatClient extends JFrame implements Runnable {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				// x버튼을 눌러서 종료하기 전에 서버와의 접속을 해제
-				out.println("xx~:X2V");	// 서버에 xx~:X2V 메시지를 전송(임의로 아무도 쓰지 않을 것 같은 것)
-				
+				out.println("xx~:X2V"); // 서버에 xx~:X2V 메시지를 전송(임의로 아무도 쓰지 않을 것 같은 것)
+
 			}
 		});
 
@@ -84,7 +89,7 @@ public class ChatClient extends JFrame implements Runnable {
 	// 서버와 접속하는 메서드
 	private void connected() {
 		try {
-			s = new Socket("192.168.3.28", 3500);
+			s = new Socket("192.168.3.101", 3500);
 
 			// 서버에서 넘어온 값을 읽어들이기 위한 input스트림
 			in = new BufferedReader(new InputStreamReader(s.getInputStream()));
@@ -109,31 +114,30 @@ public class ChatClient extends JFrame implements Runnable {
 	@Override
 	public void run() {
 		// 서버로부터 전달되는 메시지를 기다린다.
-		while (true) {
-			try {
+		try {
+			while (true) {
 				String msg = in.readLine(); // 누군가 client한테 메시지를 보내기 전까지 대기
-				
-				if(msg.equals("xx~:X2V")) {
+
+				if (msg.equals("xx~:X2V")) {
 					break;
 				}
 
 				if (msg != null) {
 					area.append(msg + "\n");
 				}
-			} catch (Exception e) {
+			} // while
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			try {
+				out.close();
+				in.close();
+				s.close();
+				System.exit(0);
+			} catch (Exception e2) {
 				// TODO: handle exception
-			} finally {
-				try {
-					out.close();
-					in.close();
-					s.close();
-					System.exit(0);
-				} catch (Exception e2) {
-					// TODO: handle exception
-				}
 			}
-
-		} // while
+		}
 
 	} // end of run()
 
