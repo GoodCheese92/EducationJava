@@ -1,6 +1,7 @@
 package menu_frame;
 
 import java.awt.Color;
+import java.awt.FileDialog;
 import java.awt.Font;
 import java.awt.TextArea;
 import java.awt.TextField;
@@ -8,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -46,11 +49,22 @@ public class NoticeFrame {
 		btn1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				FileWriter fw = null;
+				BufferedWriter bw = null;
+				
+				try {
+					FileDialog fd = new FileDialog(frame, "저장", FileDialog.SAVE);
+					fd.setVisible(true);
+				} catch (Exception e2) {
+					
+				}
+				
 				new NoticeSetFrame();
+				
 			}
 		});
 		
-		// btn2(수정) 버튼 감지자
+		// btn2(닫기) 버튼 감지자
 		btn2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

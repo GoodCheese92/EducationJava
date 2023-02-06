@@ -1,0 +1,5 @@
+date=2/6(월)breakfast=-lunch=얼큰만두전골Spicy dumpling hot pot.Mandu-jeongol<br>치킨너겟&허니머스타드무생채만두(돈육:국내산)<br>두부(콩:외국산)<br>치킨너겟(계육:국내산)1071kcal/35gdinner=돈불고기볶음Stir-fried spicy porkdonbulgogi어묵국물파래무침돈육:국내산732kcal/17g
+date=2/7(화)breakfast=-lunch=치킨dinner=맥주
+date=2/8(수)breakfast=-lunch=피자dinner=막걸리
+date=2/9(목)breakfast=-lunch=회dinner=와인
+date=2/10(금)breakfast=-lunch=삼겹살dinner=위스키

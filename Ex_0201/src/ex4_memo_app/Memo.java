@@ -69,6 +69,7 @@ public class Memo {
 
 		Button btnClose = new Button("닫기");
 		btnClose.setBounds(205, 450, 180, 40);
+
 		// 닫기 버튼에 프레임을 종료하는 감지자 등록
 		btnClose.addActionListener(new ActionListener() {
 			@Override

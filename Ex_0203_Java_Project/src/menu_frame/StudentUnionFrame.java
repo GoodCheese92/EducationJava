@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class StudentUnionFrame {
-	public static void main(String[] args) {
+	public StudentUnionFrame() {
 		// Frame 세팅
 		JFrame frame = new JFrame("학생회관 식당");
 		frame.setLayout(null);
@@ -45,7 +45,6 @@ public class StudentUnionFrame {
 		frame.add(btn3);
 		frame.add(btn4);
 
-		
 		// 버튼 감지하기 -----------------------------------
 		// 공지사항 버튼 누르기
 		btn1.addActionListener(new ActionListener() {
@@ -55,10 +54,16 @@ public class StudentUnionFrame {
 			}
 		});
 		
+		// 이 주의 식단 버튼 감지
+		btn3.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new ThisWeekmenuFrame();
+			}
+		});
+
 		// --------------------------------------------
-		
-		
-		
+
 		// Frame 닫기 버튼
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
@@ -71,5 +76,6 @@ public class StudentUnionFrame {
 		// Frame 디스플레이
 		frame.setVisible(true);
 
-	} // end of main
+	} // end of constructor
+
 } // end of class

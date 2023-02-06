@@ -2,6 +2,8 @@ package menu_frame;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -50,7 +52,25 @@ public class MenuFrame {
 		frame.add(btn2);
 		frame.add(btn3);
 		frame.add(btn4);
-
+		
+		
+		// 학생회관 식당 버튼 감지
+		btn1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new StudentUnionFrame();
+			}
+		});
+		
+		// test
+		btn2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new LoginFrame();
+			}
+		});
+		
+		// frame 닫기 버튼 감지
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
