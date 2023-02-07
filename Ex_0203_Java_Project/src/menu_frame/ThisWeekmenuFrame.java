@@ -16,7 +16,6 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
@@ -25,16 +24,16 @@ import menu_information.ThisWeekMenu;
 
 public class ThisWeekmenuFrame extends JFrame {
 	public ThisWeekmenuFrame() {
-		setBounds(800, 200, 900, 400);
+		setBounds(400, 100, 1200, 800);
 		setTitle("이 주의 식단");
 		
 		
 		// panel 세팅
-		JTextArea panel = new JTextArea();
+		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
 		Font panel_font = new Font("궁서체", Font.BOLD, 30);
-		panel.setFont(panel_font);
-		JScrollPane scrollpane = new JScrollPane();
+//		panel.setFont(panel_font);
+		
 		
 
 		// 내용 보여줄 Label -----------------------------------
@@ -53,44 +52,50 @@ public class ThisWeekmenuFrame extends JFrame {
 		for (int i = 0; i < la_date.length; i++) {
 			// label 생성 및 세팅
 			la_date[i] = new JLabel();
-			la_date[i].setHorizontalAlignment(JLabel.CENTER);
+			la_date[i].setHorizontalAlignment(JLabel.LEFT);
 			la_date[i].setBorder(new LineBorder(Color.BLACK));
 			
-			la_date[i].setBackground(Color.WHITE);
+			la_date[i].setBackground(Color.GREEN);
 
 			gbc.gridx = i % 4;
 			gbc.gridy = i / 4;
 
-			la_date[i].setEnabled(false);
+			// la_date[i].setEnabled(false);
 			
 			
 			// 상단 표 제목 출력하기
 			ThisWeekMenu twk = new ThisWeekMenu();
 			Font upperMenu_font = new Font("hy신명조", Font.BOLD, 20);
 			if(i<4) {
-				la_date[i].setForeground(Color.BLACK);
+//				la_date[i].setForeground(Color.BLACK);
+				la_date[i].setHorizontalAlignment(JLabel.CENTER);
 				la_date[i].setFont(upperMenu_font);
 				la_date[i].setText(twk.getUpper_name()[i]);
 			}
 			
 			// 요일 출력하기
 			if(i%4 == 0 && i != 0) {
-				la_date[i].setText(twk.getDay_of_week()[i/4 - 1]);
+				twk.menuGet("2월 1주차 메뉴.txt");
+				la_date[i].setHorizontalAlignment(JLabel.CENTER);
+				la_date[i].setText("<html>"+twk.getDate().get(i/4 - 1)+"</html>");
 			}
 
 			// 메뉴넣기
 			// 조식
 			if(i/4 != 0 && i%4 == 1) {
-				la_date[i].setText("-");
+				twk.menuGet("2월 1주차 메뉴.txt");
+				la_date[i].setHorizontalAlignment(JLabel.CENTER);
+				la_date[i].setText("<html>"+twk.getBreakfast().get(i/4-1)+"</html>");	
 			}
 			// 중식
 			if(i/4 != 0 && i%4 == 2) {
 				twk.menuGet("2월 1주차 메뉴.txt");
-				la_date[i].setText(twk.getLunch().get(i/4 -1));
+				la_date[i].setText("<html>"+twk.getLunch().get(i/4 -1)+"</html>");
 			}
 			// 석식
 			if(i/4 != 0 && i%4 == 3) {
-				la_date[i].setText(twk.getDinner_name()[i/4 - 1]);
+				twk.menuGet("2월 1주차 메뉴.txt");
+				la_date[i].setText("<html>" + twk.getDinner().get(i/4 - 1) + "</html>");
 			}
 			
 			
@@ -105,8 +110,7 @@ public class ThisWeekmenuFrame extends JFrame {
 		for (int i = 0; i < la_date.length; i++) {
 			panel.add(la_date[i]);
 		}
-		scrollpane.setViewportView(panel);
-		add(panel);
+		setContentPane(panel);
 
 		// frame 닫기버튼 감지
 		addWindowListener(new WindowAdapter() {

@@ -11,27 +11,6 @@ import path.ProjectMyPath;
 
 public class ThisWeekMenu {
 	private String upper_name[] = { "날짜", "조식", "중식", "석식" };
-	private String day_of_week[] = { "월", "화", "수", "목", "금" };
-	private String lunch_name[] = { "<html>s<br>s<br>s<br>s<br>s</html>", "치킨", "피자", "회", "돈까스" };
-	private String dinner_name[] = { "소주", "맥주", "막걸리", "와인", "위스키" };
-
-	private int price = 10000;
-
-	public String[] getLunch_name() {
-		return lunch_name;
-	}
-
-	public void setLunch_name(String[] lunch_name) {
-		this.lunch_name = lunch_name;
-	}
-
-	public String[] getDinner_name() {
-		return dinner_name;
-	}
-
-	public void setDinner_name(String[] dinner_name) {
-		this.dinner_name = dinner_name;
-	}
 
 	public String[] getUpper_name() {
 		return upper_name;
@@ -41,25 +20,18 @@ public class ThisWeekMenu {
 		this.upper_name = upper_name;
 	}
 
-	public String[] getDay_of_week() {
-		return day_of_week;
-	}
-
-	public void setDay_of_week(String[] day_of_week) {
-		this.day_of_week = day_of_week;
-	}
-
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
-		this.price = price;
-	}
-
+	private ArrayList<String> date = new ArrayList<String>();
 	private ArrayList<String> breakfast = new ArrayList<String>();
-	ArrayList<String> lunch = new ArrayList<String>();
+	private ArrayList<String> lunch = new ArrayList<String>();
 	private ArrayList<String> dinner = new ArrayList<String>();
+
+	public ArrayList<String> getDate() {
+		return date;
+	}
+
+	public void setDate(ArrayList<String> date) {
+		this.date = date;
+	}
 
 	public ArrayList<String> getBreakfast() {
 		return breakfast;
@@ -102,7 +74,8 @@ public class ThisWeekMenu {
 				String str = "";
 
 				while ((str = br.readLine()) != null) {
-					System.out.println(str);
+//					System.out.println(str);
+					date.add(str.substring(str.indexOf("date=") + 5, str.indexOf("breakfast")));
 					breakfast.add(str.substring(str.indexOf("fast=") + 5, str.indexOf("lunch")));
 					lunch.add(str.substring(str.indexOf("lunch=") + 6, str.indexOf("dinner")));
 					dinner.add(str.substring(str.indexOf("dinner=") + 7, str.length()));
@@ -119,10 +92,6 @@ public class ThisWeekMenu {
 				// TODO: handle exception
 			}
 		}
-
-		System.out.println(breakfast);
-		System.out.println(lunch);
-		System.out.println(dinner);
 
 	} // end of menuGet()
 

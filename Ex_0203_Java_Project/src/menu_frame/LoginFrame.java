@@ -14,6 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class LoginFrame extends JFrame {
+	public static void main(String[] args) {
+		new LoginFrame();
+	} // end of main
+
 	public LoginFrame() {
 		// 로그인 창 세팅
 		setBounds(800, 200, 300, 200);
@@ -60,26 +64,17 @@ public class LoginFrame extends JFrame {
 		btn1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// 로그인 정보 확인하기
-				FileInputStream fis = null;
-				ObjectInputStream ois = null;
-				
-				
-				try {
-					
-				} catch (Exception e2) {
+				new MenuFrame();
+				dispose();
 
-				}
-				
 			}
 		});
-		
+
 		// 버튼2(닫기) 감지
 		btn2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				
+
 			}
 		});
 
@@ -90,7 +85,7 @@ public class LoginFrame extends JFrame {
 				dispose();
 			}
 		});
-		
+
 		setResizable(false);
 		setVisible(true);
 
