@@ -15,7 +15,11 @@ import javax.swing.ImageIcon;
 
 public class SaveCoffeeObject {
 	public static void main(String[] args) {
-		File file = new File(CoffeePath.PATH + "/Coffee");
+		// 학원
+//		File file = new File(CoffeePath.PATH + "/Coffee");
+		// 집
+		File file = new File(
+				"D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/Coffee");
 
 		File[] arrFile = file.listFiles();
 
@@ -52,6 +56,8 @@ public class SaveCoffeeObject {
 					case '2':
 						coffee[i].setExplain(info.substring(3));
 						break;
+					case '3':
+						coffee[i].setPrice(Integer.parseInt(info.substring(3)));
 					} // switch
 				} // while
 			} catch (Exception e) {
@@ -68,8 +74,11 @@ public class SaveCoffeeObject {
 			// 사진정보 읽어오기
 			FileInputStream fis = null;
 			BufferedInputStream bis = null;
-
-			File img_file = new File(CoffeePath.PATH + "\\Coffee\\" + coffeeFileName.get(i) + ".jpg");
+			
+			// 학원
+//			File img_file = new File(CoffeePath.PATH + "\\Coffee\\" + coffeeFileName.get(i) + ".jpg");
+			// 집
+			File img_file = new File("D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo\\Coffee/" + coffeeFileName.get(i) + ".jpg");
 			byte[] img_read = new byte[(int) img_file.length()];
 			try {
 				fis = new FileInputStream(img_file);
@@ -78,7 +87,6 @@ public class SaveCoffeeObject {
 				ImageIcon icon = new ImageIcon(img_read);
 				SaveCoffeeObject method = new SaveCoffeeObject();
 				icon = method.changeIconSize(icon, 250, 200);
-
 				coffee[i].setImgicon(icon);
 
 			} catch (Exception e) {
@@ -99,8 +107,11 @@ public class SaveCoffeeObject {
 			System.out.println(" : " + coffee[i].getExplain());
 			System.out.println("-------------------------------------");
 		}
-
-		File objectFile = new File(CoffeePath.PATH + "/CoffeeObjectSave/");
+		
+		// 학원
+//		File objectFile = new File(CoffeePath.PATH + "/CoffeeObjectSave/");
+		// 집
+		File objectFile = new File("D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/CoffeeObjectSave/");
 
 		// 객체 저장
 		FileOutputStream fos = null;
@@ -115,8 +126,8 @@ public class SaveCoffeeObject {
 			}
 
 			for (int i = 0; i < coffee.length; i++) {
-				fos = new FileOutputStream(CoffeePath.PATH + "/CoffeeObjectSave/" + coffee[i].getName() + ".save");
-				//bos = new BufferedOutputStream(fos);
+				fos = new FileOutputStream(objectFile + "/" + coffee[i].getName() + ".save");
+				// bos = new BufferedOutputStream(fos);
 				oos = new ObjectOutputStream(fos);
 
 				oos.writeObject(coffee[i]);
@@ -126,7 +137,7 @@ public class SaveCoffeeObject {
 		} finally {
 			try {
 				oos.close();
-				//bos.close();
+				// bos.close();
 				fos.close();
 			} catch (Exception e2) {
 				e2.printStackTrace();
@@ -141,5 +152,11 @@ public class SaveCoffeeObject {
 		ImageIcon icon_res = new ImageIcon(img2);
 		return icon_res;
 	} // end of changeIconSize()
+	
+	public Image chanegeImg(ImageIcon icon, int width, int height) {
+		Image img1 = icon.getImage();
+		Image img2 = img1.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+		return img2;
+	} // end of changeImg
 
 } // end of class

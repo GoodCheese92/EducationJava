@@ -1,15 +1,12 @@
 package menu_frame;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.FileInputStream;
 
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import menu_information.CafeMenu;
+import menu_information.LoadCoffeeObject;
 
 public class CafeMenuFrame extends JFrame {
 	public CafeMenuFrame() {
@@ -57,7 +55,8 @@ public class CafeMenuFrame extends JFrame {
 		panel1.setLayout(gl);
 		
 		// panel1에 버튼 세팅 -----------------------------------
-		ImageIcon img1 = new ImageIcon("아메리카노(Hot).jpg");
+		LoadCoffeeObject lco = new LoadCoffeeObject();
+		ImageIcon img1 = new ImageIcon(lco.getCoffee()[0].getImgicon().getImage());
 		
 		// 커피 정보 객체 읽어오기
 		

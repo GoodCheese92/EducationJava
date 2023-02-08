@@ -7,12 +7,25 @@ import java.io.ObjectInputStream;
 
 public class LoadCoffeeObject {
 
+	// 학원
+//	File file = new File(
+//			"C:\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo\\CoffeeObjectSave");
+	// 집
 	File file = new File(
-			"C:\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo\\CoffeeObjectSave");
+			"D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo\\CoffeeObjectSave");
 
-	CoffeeProperties[] coffee = new CoffeeProperties[file.list().length];
-
-	public LoadCoffeeObject(CoffeeProperties[] coffee) {
+	private CoffeeProperties[] coffee = new CoffeeProperties[file.list().length];
+	
+	public CoffeeProperties[] getCoffee() {
+		return coffee;
+	}
+	
+	public void setCoffee(CoffeeProperties[] coffee) {
+		this.coffee = coffee;
+	}
+	
+	// 생성자
+	public LoadCoffeeObject() {
 		FileInputStream fis = null;
 		BufferedInputStream bis = null;
 		ObjectInputStream ois = null;
@@ -20,12 +33,12 @@ public class LoadCoffeeObject {
 		for (int i = 0; i < coffee.length; i++) {
 			coffee[i] = new CoffeeProperties();
 
-			System.out.println(file.list()[i]);
+//			System.out.println(file.list()[i]);
 			try {
 				fis = new FileInputStream(file + "\\" + file.list()[i]);
-				//bis = new BufferedInputStream(fis);
+				// bis = new BufferedInputStream(fis);
 				ois = new ObjectInputStream(fis);
-				
+
 				coffee[i] = (CoffeeProperties) ois.readObject();
 
 			} catch (Exception e) {
@@ -34,18 +47,14 @@ public class LoadCoffeeObject {
 			} finally {
 				try {
 					ois.close();
-					//bis.close();
+					// bis.close();
 					fis.close();
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
 			}
 		} // for
+		System.out.println(coffee[0].getName());
 	} // end of constructor
 
-	public static void main(String[] args) {
-		CoffeeProperties[] coffee = new CoffeeProperties[10];
-		LoadCoffeeObject lco = new LoadCoffeeObject(coffee);
-		System.out.println(lco.file.list().length);
-	}
 } // end of class
