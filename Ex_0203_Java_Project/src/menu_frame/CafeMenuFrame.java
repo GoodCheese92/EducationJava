@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.FileInputStream;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -27,9 +28,11 @@ public class CafeMenuFrame extends JFrame {
 		
 		// topPanel 세팅--------------------------------------
 		JPanel top_panel = new JPanel();
+		GridLayout top_gl = new GridLayout(1, 0, 10, 10);
 		top_panel.setBackground(new Color(153, 255, 153));
 		top_panel.setBounds(10, 10, 1175, 65);
-		top_panel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+		// top_panel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+		top_panel.setLayout(top_gl);
 		
 		// menu button 세팅
 		JButton[] menu_btn = new JButton[4];
@@ -37,7 +40,8 @@ public class CafeMenuFrame extends JFrame {
 		Font ct_font = new Font("hy신명조", Font.BOLD, 20);
 		for(int i=0; i<menu_btn.length;i++) {
 			menu_btn[i] = new JButton(cm.getMenuCategory().get(i));
-			top_panel.setFont(ct_font);
+			menu_btn[i].setFont(ct_font);
+			menu_btn[i].setBackground(Color.WHITE);
 			top_panel.add(menu_btn[i]);
 		} // for
 		
@@ -55,11 +59,17 @@ public class CafeMenuFrame extends JFrame {
 		// panel1에 버튼 세팅 -----------------------------------
 		ImageIcon img1 = new ImageIcon("아메리카노(Hot).jpg");
 		
+		// 커피 정보 객체 읽어오기
+		
 		JButton[] btn1 = new JButton[8];
 		for(int i=0; i<btn1.length; i++) {
 			btn1[i] = new JButton();
 			
 		} // for
+		
+		
+		
+		
 		btn1[0].setIcon(img1);
 		// -------------------------------------------------
 		
