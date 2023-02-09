@@ -7,36 +7,58 @@ import java.io.ObjectInputStream;
 
 public class LoadCoffeeObject {
 
-	// 학원
-//	File file = new File(
-//			"C:\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo\\CoffeeObjectSave");
-	// 집
-	File file = new File(
-			"D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo\\CoffeeObjectSave");
+	private CoffeeProperties[] coffee;
 
-	private CoffeeProperties[] coffee = new CoffeeProperties[file.list().length];
+	private CoffeeProperties[] drink;
 	
+	public CoffeeProperties[] getDrink() {
+		return drink;
+	}
+
+	public void setDrink(CoffeeProperties[] drink) {
+		this.drink = drink;
+	}
+
 	public CoffeeProperties[] getCoffee() {
 		return coffee;
 	}
-	
+
 	public void setCoffee(CoffeeProperties[] coffee) {
 		this.coffee = coffee;
 	}
-	
+
+	File file;
+
 	// 생성자
-	public LoadCoffeeObject() {
+	public LoadCoffeeObject(String path) {
+		// 학원
+		file = new File(
+				"C:\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/" + path);
+		// 집
+//		File file = new File(
+//				"D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo\\CoffeeObjectSave");
+
+		
+		
+		if(path.contains("CoffeeObject")) {
+			coffee = new CoffeeProperties[file.list().length];
+			loadCoffeeObject();
+		} else if(path.contains("DrinkObject")){
+			drink = new CoffeeProperties[file.list().length];
+			loadDrinkObject();
+		}
+
+	} // end of constructor
+
+	public void loadCoffeeObject() {
 		FileInputStream fis = null;
-		BufferedInputStream bis = null;
 		ObjectInputStream ois = null;
 
 		for (int i = 0; i < coffee.length; i++) {
 			coffee[i] = new CoffeeProperties();
 
-//			System.out.println(file.list()[i]);
 			try {
 				fis = new FileInputStream(file + "\\" + file.list()[i]);
-				// bis = new BufferedInputStream(fis);
 				ois = new ObjectInputStream(fis);
 
 				coffee[i] = (CoffeeProperties) ois.readObject();
@@ -47,14 +69,39 @@ public class LoadCoffeeObject {
 			} finally {
 				try {
 					ois.close();
-					// bis.close();
 					fis.close();
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
 			}
 		} // for
-		System.out.println(coffee[0].getName());
-	} // end of constructor
+	} // end of loadCoffeeObject()
+	
+	public void loadDrinkObject() {
+		FileInputStream fis2 = null;
+		ObjectInputStream ois2 = null;
+
+		for (int i = 0; i < drink.length; i++) {
+			drink[i] = new CoffeeProperties();
+
+			try {
+				fis2 = new FileInputStream(file + "\\" + file.list()[i]);
+				ois2 = new ObjectInputStream(fis2);
+
+				drink[i] = (CoffeeProperties) ois2.readObject();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			} finally {
+				try {
+					ois2.close();
+					fis2.close();
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+			}
+		} // for
+	} // end of loadDrinkObject()
 
 } // end of class

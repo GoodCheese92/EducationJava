@@ -10,7 +10,6 @@ public class ObjectSaveTest {
 		CafeMenu cm = new CafeMenu();
 		cpp[0] = new CoffeeProperties();
 		
-		cm.readInfo(cpp[0], CoffeePath.PATH, "아메리카노(Ice)");
 		System.out.println(cpp[0].getName());
 		System.out.println(cpp[0].getExplain());
 		System.out.println(cpp[0].getImgicon());
