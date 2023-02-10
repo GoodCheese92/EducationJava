@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.HashMap;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -21,7 +22,9 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
+import menu_information.CafeButtonClickListener;
 import menu_information.CafeMenu;
+import menu_information.CoffeeProperties;
 import menu_information.LoadCoffeeObject;
 
 public class CafeMenuFrame extends JFrame {
@@ -65,9 +68,12 @@ public class CafeMenuFrame extends JFrame {
 		LoadCoffeeObject lco = new LoadCoffeeObject("CoffeeObjectSave(Hot)");
 
 		// 커피(hot) 정보 객체 읽어오기
+		HashMap<Integer, JButton> hm1_btn = new HashMap<Integer, JButton>();
+		HashMap<Integer, CoffeeProperties> hm1_coffee = new HashMap<Integer, CoffeeProperties>();
 		JButton[] btn1 = new JButton[8];
 		for (int i = 0; i < btn1.length; i++) {
 			btn1[i] = new JButton();
+			hm1_btn.put(i, btn1[i]);
 		} // for
 
 		for (int i = 0; i < lco.getCoffee().length; i++) {
@@ -77,6 +83,7 @@ public class CafeMenuFrame extends JFrame {
 					+ "원</center></html>");
 			btn1[i].setHorizontalTextPosition(JButton.CENTER);
 			btn1[i].setVerticalTextPosition(JButton.BOTTOM);
+			hm1_coffee.put(i, lco.getCoffee()[i]);
 		} // for
 			// -------------------------------------------------
 
@@ -89,11 +96,14 @@ public class CafeMenuFrame extends JFrame {
 
 		// panel2 Coffee(Ice)에 버튼 세팅
 		LoadCoffeeObject lco2 = new LoadCoffeeObject("CoffeeObjectSave(Ice)");
+		HashMap<Integer, JButton> hm2_btn = new HashMap<Integer, JButton>();
+		HashMap<Integer, CoffeeProperties> hm2_coffee = new HashMap<Integer, CoffeeProperties>();
 
 		// 커피(ice) 정보 객체 읽어오기
 		JButton[] btn2 = new JButton[8];
 		for (int i = 0; i < btn2.length; i++) {
 			btn2[i] = new JButton();
+			hm2_btn.put(i, btn2[i]);
 		} // for
 
 		for (int i = 0; i < lco2.getCoffee().length; i++) {
@@ -103,6 +113,7 @@ public class CafeMenuFrame extends JFrame {
 					+ "원</center></html>");
 			btn2[i].setHorizontalTextPosition(JButton.CENTER);
 			btn2[i].setVerticalTextPosition(JButton.BOTTOM);
+			hm2_coffee.put(i, lco2.getCoffee()[i]);
 		} // for
 			// -------------------------------------------------
 
@@ -115,11 +126,14 @@ public class CafeMenuFrame extends JFrame {
 
 		// panel3 Drink(Hot)에 버튼 세팅
 		LoadCoffeeObject lco3 = new LoadCoffeeObject("DrinkObjectSave(Hot)");
+		HashMap<Integer, JButton> hm3_btn = new HashMap<Integer, JButton>();
+		HashMap<Integer, CoffeeProperties> hm3_drink = new HashMap<Integer, CoffeeProperties>();
 
 		// 음료(hot) 정보 객체 읽어오기
 		JButton[] btn3 = new JButton[8];
 		for (int i = 0; i < btn3.length; i++) {
 			btn3[i] = new JButton();
+			hm3_btn.put(i, btn3[i]);
 		} // for
 
 		for (int i = 0; i < lco3.getDrink().length; i++) {
@@ -129,6 +143,7 @@ public class CafeMenuFrame extends JFrame {
 					+ "원</center></html>");
 			btn3[i].setHorizontalTextPosition(JButton.CENTER);
 			btn3[i].setVerticalTextPosition(JButton.BOTTOM);
+			hm3_drink.put(i, lco3.getDrink()[i]);
 		} // for
 			// -------------------------------------------------
 
@@ -141,11 +156,14 @@ public class CafeMenuFrame extends JFrame {
 
 		// panel4 Drink(Ice)에 버튼 세팅
 		LoadCoffeeObject lco4 = new LoadCoffeeObject("DrinkObjectSave(Ice)");
+		HashMap<Integer, JButton> hm4_btn = new HashMap<Integer, JButton>();
+		HashMap<Integer, CoffeeProperties> hm4_drink = new HashMap<Integer, CoffeeProperties>();
 
 		// 음료(hot) 정보 객체 읽어오기
 		JButton[] btn4 = new JButton[8];
 		for (int i = 0; i < btn4.length; i++) {
 			btn4[i] = new JButton();
+			hm4_btn.put(i, btn4[i]);
 		} // for
 
 		for (int i = 0; i < lco4.getDrink().length - 1; i++) {
@@ -155,6 +173,7 @@ public class CafeMenuFrame extends JFrame {
 					+ "원</center></html>");
 			btn4[i].setHorizontalTextPosition(JButton.CENTER);
 			btn4[i].setVerticalTextPosition(JButton.BOTTOM);
+			hm4_drink.put(i, lco4.getDrink()[i]);
 		} // for
 			// -------------------------------------------------
 
@@ -180,11 +199,16 @@ public class CafeMenuFrame extends JFrame {
 		text_gbc.fill = GridBagConstraints.BOTH;
 		text_gbc.weighty = 0.1;
 
+		
 		JLabel[] content_lb = new JLabel[8 * 3];
 		for (int i = 0; i < content_lb.length; i++) {
-			content_lb[i] = new JLabel("");
-			content_lb[i].setFont(new Font("휴먼명조", Font.BOLD, 15));
+			content_lb[i] = new JLabel();
+			if (i >= 3) {
+				content_lb[i].setText("");
+			}
+			content_lb[i].setFont(new Font("휴먼명조", Font.BOLD, 13));
 			content_lb[i].setEnabled(false);
+			content_lb[i].setHorizontalAlignment(JLabel.CENTER);
 
 			text_gbc.gridx = i % 3;
 			text_gbc.gridy = i / 3;
@@ -207,15 +231,18 @@ public class CafeMenuFrame extends JFrame {
 		content_lb[2].setText("가격");
 
 		// 총 가격 label area 세팅
-		JPanel totalPrice_panel = new JPanel(new BorderLayout());
+		JPanel totalPrice_panel = new JPanel();
+		totalPrice_panel.setLayout(null);
 		totalPrice_panel.setBounds(10, 260, 900, 50);
 		bottom_panel.add(totalPrice_panel);
 
 		// 총 가격 label
-		Font totalPrice_font = new Font("hy헤드라인m", Font.BOLD, 30);
-		JLabel totalprice_lb = new JLabel("총 가격 : 10,500원 ");
-		totalPrice_panel.setFont(totalPrice_font);
-		totalPrice_panel.add(totalprice_lb, BorderLayout.EAST);
+		Font totalPrice_font = new Font("hy헤드라인m", Font.BOLD, 20);
+		JLabel totalprice_lb = new JLabel();
+		totalprice_lb.setText("총 : 0원");
+		totalprice_lb.setBounds(750, 5, 250, 40);
+		totalprice_lb.setFont(totalPrice_font);
+		totalPrice_panel.add(totalprice_lb);
 
 		// 전체삭제 및 결제하기 버튼 세팅
 		Font rm_font = new Font("hy헤드라인M", Font.BOLD, 20);
@@ -305,37 +332,30 @@ public class CafeMenuFrame extends JFrame {
 
 		// 중간 패널 coffee&drink 버튼 감지 ------------------------------
 		// coffee(Hot) 버튼 감지
-		coffeeHot_num = 0;
-		for (coffeeHot_num = 0; coffeeHot_num < lco.getCoffee().length; coffeeHot_num++) {
-			btn1[coffeeHot_num].addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					int count1 = 1;
-					for (int j = 0; j < (content_lb.length / 3); j++) {
-						System.out.println(j + " -> 1");
-						if (content_lb[j * 3].getText() == null || content_lb[j * 3].getText().equals("")) {
-							content_lb[j * 3].setText(lco.getCoffee()[coffeeHot_num].getName());
-							content_lb[j * 3 + 1].setText(Integer.toString(count1));
-							content_lb[j * 3 + 2]
-									.setText(Integer.toString(lco.getCoffee()[coffeeHot_num].getPrice()) + "원");
-							content_lb[j * 3].repaint();
-							content_lb[j * 3 + 1].repaint();
-							content_lb[j * 3 + 2].repaint();
-						} else if (content_lb[j * 3].getText().equals(lco.getCoffee()[coffeeHot_num].getName())) {
-							System.out.println(j + " -> 2");
-							content_lb[j * 3 + 1].setText(Integer.toString(++count1));
-							content_lb[j * 3 + 2].setText(
-									Integer.toString(lco.getCoffee()[coffeeHot_num].getPrice() * count1) + "원");
-							content_lb[j * 3].repaint();
-							content_lb[j * 3 + 1].repaint();
-							content_lb[j * 3 + 2].repaint();
-						} else {
-							System.out.println(j + " -> 3");
-							
-						}
-					} // for
-				}
-			});
+		int total_price = 0;
+		CafeButtonClickListener[] cbcl = new CafeButtonClickListener[hm1_coffee.size()];
+		for (int i = 0; i < hm1_coffee.size(); i++) {
+			cbcl[i] = new CafeButtonClickListener(i, hm1_coffee, content_lb, totalprice_lb);
+			btn1[i].addActionListener(cbcl[i]);
+			
+		} // for
+
+		// coffee(Ice) 버튼 감지
+		for (int i = 0; i < hm2_coffee.size(); i++) {
+			btn2[i].addActionListener(new CafeButtonClickListener(i, hm2_coffee, content_lb, totalprice_lb));
+			total_price += hm2_coffee.get(i).getPrice();
+		} // for
+
+		// drink(Hot) 버튼 감지
+		for (int i = 0; i < hm3_drink.size(); i++) {
+			btn3[i].addActionListener(new CafeButtonClickListener(i, hm3_drink, content_lb, totalprice_lb));
+			total_price += hm3_drink.get(i).getPrice();
+		} // for
+
+		// drink(Ice) 버튼 감지
+		for (int i = 0; i < hm4_drink.size(); i++) {
+			btn4[i].addActionListener(new CafeButtonClickListener(i, hm4_drink, content_lb, totalprice_lb));
+			total_price += hm4_drink.get(i).getPrice();
 		} // for
 
 		// -------------------------중간 패널 coffee&drink 버튼 감지 끝
@@ -353,5 +373,4 @@ public class CafeMenuFrame extends JFrame {
 
 	} // end of constructor
 
-	static int coffeeHot_num = 0;
 } // end of class

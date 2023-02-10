@@ -89,6 +89,8 @@ public class LoginFrame extends JFrame {
 		setResizable(false);
 		setVisible(true);
 
+		
+		
 	} // end of constructor
 
 } // end of class
