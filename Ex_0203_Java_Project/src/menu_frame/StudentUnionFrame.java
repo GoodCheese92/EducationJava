@@ -11,9 +11,9 @@ import javax.swing.JFrame;
 import javax.swing.SwingConstants;
 
 public class StudentUnionFrame {
-	public StudentUnionFrame() {
+	public StudentUnionFrame(String restaurantName) {
 		// Frame 세팅
-		JFrame frame = new JFrame("학생회관 식당");
+		JFrame frame = new JFrame(restaurantName + " 식당");
 		frame.setLayout(null);
 		frame.setBounds(800, 200, 500, 400);
 
@@ -74,7 +74,7 @@ public class StudentUnionFrame {
 		btn2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new TodayMenuFrame();
+				new TodayMenuFrame(restaurantName + " 메뉴/2월 2주차 메뉴.txt");
 			}
 		});
 		
@@ -82,7 +82,7 @@ public class StudentUnionFrame {
 		btn3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new ThisWeekmenuFrame();
+				new ThisWeekmenuFrame(restaurantName + " 메뉴/2월 2주차 메뉴.txt");
 			}
 		});
 		
@@ -98,6 +98,7 @@ public class StudentUnionFrame {
 		});
 
 		// Frame 디스플레이
+		frame.setResizable(false);
 		frame.setVisible(true);
 
 	} // end of constructor

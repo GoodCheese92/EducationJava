@@ -18,7 +18,9 @@ import javax.swing.border.LineBorder;
 import menu_information.ThisWeekMenu;
 
 public class TodayMenuFrame extends JFrame {
-	public TodayMenuFrame() {
+	String fileName;
+	public TodayMenuFrame(String fileName) {
+		this.fileName = fileName;
 		setBounds(400, 100, 800, 600);
 		setTitle("오늘의 식단");
 
@@ -70,10 +72,10 @@ public class TodayMenuFrame extends JFrame {
 		} // for
 		
 		// 내용 세팅
-		twk.menuGet("2월 1주차 메뉴.txt");
+		twk.menuGet(fileName);
 		for(int i=0; i<twk.getDate().size(); i++) {
-			String str = twk.getDate().get(i); 
-			if(sdf.format(date).equals(str)) {
+			String str = twk.getDate().get(i);
+			if(str.equals(sdf.format(date))) {
 				lb[4].setText(str);
 				lb[5].setText("<html>"+ twk.getBreakfast().get(i)+"</html>");
 				lb[6].setText("<html>"+twk.getLunch().get(i)+"</html>");

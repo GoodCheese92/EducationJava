@@ -56,8 +56,13 @@ public class ThisWeekMenu {
 	public void setDinner(ArrayList<String> dinner) {
 		this.dinner = dinner;
 	}
-
-	String path = ProjectMyPath.path + "Ex_0203_Java_Project/src/menu_information/menuFile/";
+	
+	// 학원
+//	String path = ProjectMyPath.path + "Ex_0203_Java_Project/src/menu_information/menuFile/";
+	// 집
+	String path = "D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\menuFile" + "/";
+	
+	
 	File file = new File(path);
 
 	public void menuGet(String filename) {
@@ -80,16 +85,18 @@ public class ThisWeekMenu {
 					lunch.add(str.substring(str.indexOf("lunch=") + 6, str.indexOf("dinner")));
 					dinner.add(str.substring(str.indexOf("dinner=") + 7, str.length()));
 				}
+			} else {
+				System.out.println("파일이 없습니다.");
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		} finally {
 			try {
 				br.close();
 				fr.close();
 			} catch (Exception e2) {
-				// TODO: handle exception
+				e2.printStackTrace();
 			}
 		}
 
@@ -109,7 +116,7 @@ public class ThisWeekMenu {
 			bw = new BufferedWriter(fw);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 
 	} // end of menuSave()

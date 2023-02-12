@@ -1,0 +1,5 @@
+date=2/6(월)breakfast=-lunch=얼큰만두전골(Spicy dumpling hot pot.Mandu-jeongol)<br>치킨너겟&허니머스타드<br>무생채<br>만두(돈육:국내산)<br>두부(콩:외국산)<br>치킨너겟(계육:국내산)<br>1071kcal/35gdinner=돈불고기볶음(Stir-fried spicy porkdonbulgogi)<br>어묵국물파래무침<br>돈육:국내산<br>732kcal/17g
+date=2/7(화)breakfast=-lunch=참치김치찌개(Tuna kimchi stewchamchi kimchi jjigae)<br>맛살계란찜<br>숙주오이무침<br>참치:원양산,김치(배추,고추가루:국산)<br>894kcal/35gdinner=돈까스마요덮밥(Pork cutlet mayo with rice<br>두부된장국<br>깍두기<br>돈까스(돈육:국내산)<br>두부(콩:외국산)<br>953kcal/39g
+date=2/8(수)breakfast=-lunch=바지락칼국수(Noodle Soup with Clams)<br>물만두배추겉절이물만두(돈육:국내산)<br>겉절이(배추:국내산,고추가루:중국산)<br>758kcal/10gdinner=참치야채비빔밥(Tuna vegetable bibimbap)<br>미역국<br>인절미토스트<br>참치:원양산<br>736kcal/26g
+date=2/9(목)breakfast=-lunch=잡채덮밥&자장소스(rice topped with stir-fried potato noodles & vegetables)<br>부추계란국요구르트<br>김치<br>돈육:국내산<br>1007kcal/42gdinner=제육덮밥(rice topped with porkjeyuk deopbap)<br>유부된장국<br>카레<br>사모사튀김<br>돈육:국내산<br>807kcal/32g
+date=2/10(금)breakfast=-lunch=순두부찌개(Soft Tofu Stewsundubu jjigae)<br>감자조림<br>김치<br>761kcal/27gdinner=새우튀김우동(udonudon)<br>양배추샐러드<br>단무지<br>추가밥<br>1023kcal/26g

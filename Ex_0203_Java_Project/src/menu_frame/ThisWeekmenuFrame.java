@@ -23,7 +23,7 @@ import javax.swing.border.LineBorder;
 import menu_information.ThisWeekMenu;
 
 public class ThisWeekmenuFrame extends JFrame {
-	public ThisWeekmenuFrame() {
+	public ThisWeekmenuFrame(String filename) {
 		setBounds(400, 100, 1200, 800);
 		setTitle("이 주의 식단");
 		
@@ -74,8 +74,9 @@ public class ThisWeekmenuFrame extends JFrame {
 			}
 			
 			// 요일 출력하기
+//			filename = "학생회관 메뉴/2월 2주차 메뉴.txt";
 			if(i%4 == 0 && i != 0) {
-				twk.menuGet("2월 1주차 메뉴.txt");
+				twk.menuGet(filename);
 				la_date[i].setHorizontalAlignment(JLabel.CENTER);
 				la_date[i].setText("<html>"+twk.getDate().get(i/4 - 1)+"</html>");
 			}
@@ -83,18 +84,18 @@ public class ThisWeekmenuFrame extends JFrame {
 			// 메뉴넣기
 			// 조식
 			if(i/4 != 0 && i%4 == 1) {
-				twk.menuGet("2월 1주차 메뉴.txt");
+				twk.menuGet(filename);
 				la_date[i].setHorizontalAlignment(JLabel.CENTER);
 				la_date[i].setText("<html>"+twk.getBreakfast().get(i/4-1)+"</html>");	
 			}
 			// 중식
 			if(i/4 != 0 && i%4 == 2) {
-				twk.menuGet("2월 1주차 메뉴.txt");
+				twk.menuGet(filename);
 				la_date[i].setText("<html>"+twk.getLunch().get(i/4 -1)+"</html>");
 			}
 			// 석식
 			if(i/4 != 0 && i%4 == 3) {
-				twk.menuGet("2월 1주차 메뉴.txt");
+				twk.menuGet(filename);
 				la_date[i].setText("<html>" + twk.getDinner().get(i/4 - 1) + "</html>");
 			}
 			

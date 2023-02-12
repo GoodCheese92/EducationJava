@@ -59,7 +59,7 @@ public class MenuFrame {
 				btn1.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						new StudentUnionFrame();
+						new StudentUnionFrame("학생회관");
 					}
 				});
 				
@@ -67,7 +67,7 @@ public class MenuFrame {
 				btn2.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						new StudentUnionFrame();
+						new StudentUnionFrame("자연과학관");
 					}
 				});
 				
@@ -75,7 +75,7 @@ public class MenuFrame {
 				btn3.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						new StudentUnionFrame();
+						new StudentUnionFrame("본관");
 					}
 				});
 				
@@ -94,7 +94,8 @@ public class MenuFrame {
 						System.exit(0);
 					}
 				});
-
+				
+				frame.setResizable(false);
 				frame.setVisible(true);
 	} // end of constructor
 } // end of class

@@ -24,6 +24,7 @@ import javax.swing.border.LineBorder;
 
 import menu_information.CafeButtonClickListener;
 import menu_information.CafeMenu;
+import menu_information.CafeRemoveButtonListener;
 import menu_information.CoffeeProperties;
 import menu_information.LoadCoffeeObject;
 
@@ -359,7 +360,18 @@ public class CafeMenuFrame extends JFrame {
 		} // for
 
 		// -------------------------중간 패널 coffee&drink 버튼 감지 끝
-
+		
+		// 전체삭제 버튼 클릭 감지
+		removeAll_btn.addActionListener(new CafeRemoveButtonListener(content_lb, totalprice_lb));
+		
+		// 결제하기 버튼 클릭 감지
+		pay_btn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new CafePayFrame(totalprice_lb);
+			}
+		});
+		
 		// frame 닫기 감지
 		addWindowListener(new WindowAdapter() {
 			@Override
