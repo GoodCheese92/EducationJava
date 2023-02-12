@@ -9,15 +9,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class NoticeFrame {
-	public NoticeFrame() {
+	public NoticeFrame(String restaurantName) {
 		// frame 세팅
 		JFrame frame = new JFrame("공지사항");
 		frame.setLayout(null);
@@ -29,6 +33,42 @@ public class NoticeFrame {
 		ta.setEditable(false);
 		ta.setBounds(10, 10, 370, 200);
 		ta.setBackground(new Color(255, 255, 255));
+		
+		// 게시판 내용 파일 읽어오기
+		FileReader fr = null;
+		BufferedReader br = null;
+		File file = new File("D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\notice_board\\notice_data" + "/" + restaurantName + " 공지사항/notice.txt");
+		
+		ArrayList<String> notice_msg = new ArrayList<String>();
+		try {
+			if(file.exists()) {
+				fr = new FileReader(file);
+				br = new BufferedReader(fr);
+				
+				String str = "";
+				while((str = br.readLine()) != null){
+//					System.out.println(str);
+					notice_msg.add(str);
+				} // while
+			} else {
+				System.out.println("파일이 존재하지 않습니다.");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				br.close();
+				fr.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+		String msg = ""; 
+		for(int i=0;i<notice_msg.size();i++) {
+			msg += notice_msg.get(i) + "\n";
+		} // for
+		ta.setText(msg);
 		
 		// 하단 버튼 세팅
 		Font bt_font = new Font("궁서체", Font.BOLD, 20);
@@ -59,7 +99,7 @@ public class NoticeFrame {
 					
 				}
 				
-				new NoticeSetFrame();
+//				new NoticeSetFrame();
 				
 			}
 		});

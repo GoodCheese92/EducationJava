@@ -43,6 +43,11 @@ public class MenuFrame {
 				btn4.setFont(btn_font);
 				btn4.setBounds(250, 200, 200, 100);
 				
+				// 버튼 5
+				JButton btn5 = new JButton("뒤로가기");
+				btn5.setFont(new Font("궁서체", Font.BOLD, 15));
+				btn5.setBounds(186, 315, 100, 30);
+				
 				// -------------------------------------------
 
 				// panel에 추가하기
@@ -53,6 +58,7 @@ public class MenuFrame {
 				frame.add(btn2);
 				frame.add(btn3);
 				frame.add(btn4);
+				frame.add(btn5);
 				
 				
 				// 학생회관 식당 버튼 감지
@@ -60,6 +66,7 @@ public class MenuFrame {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						new StudentUnionFrame("학생회관");
+						frame.dispose();
 					}
 				});
 				
@@ -68,6 +75,7 @@ public class MenuFrame {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						new StudentUnionFrame("자연과학관");
+						frame.dispose();
 					}
 				});
 				
@@ -76,6 +84,7 @@ public class MenuFrame {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						new StudentUnionFrame("본관");
+						frame.dispose();
 					}
 				});
 				
@@ -84,6 +93,16 @@ public class MenuFrame {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						new CafeMenuFrame();
+						frame.dispose();
+					}
+				});
+				
+				// 뒤로가기 버튼 감지
+				btn5.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						new LoginFrame();
+						frame.dispose();
 					}
 				});
 				

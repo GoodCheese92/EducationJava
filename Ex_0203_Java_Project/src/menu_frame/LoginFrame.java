@@ -66,7 +66,6 @@ public class LoginFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				new MenuFrame();
 				dispose();
-
 			}
 		});
 
@@ -74,7 +73,7 @@ public class LoginFrame extends JFrame {
 		btn2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				
 			}
 		});
 
