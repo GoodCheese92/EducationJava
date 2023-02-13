@@ -14,16 +14,18 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
+import path.ProjectMyPath;
+
 public class SaveCoffeeObject {
 	public static void main(String[] args) {
 		// 학원
-		File file = new File(CoffeePath.PATH + "/Coffee");
-		File file2 = new File(CoffeePath.PATH + "/Drink");
+//		File file = new File(ProjectMyPath.path + "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/Coffee");
+//		File file2 = new File(ProjectMyPath.path + "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/Drink");
 		// 집
-//		File file = new File(
-//				"D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/Coffee");
-//		File file2 = new File(
-//				"D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/Drink");
+		File file = new File(
+				ProjectMyPath.path + "Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/Coffee");
+		File file2 = new File(
+				ProjectMyPath.path + "Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/Drink");
 
 		File[] arrFile = file.listFiles();
 		File[] arrFile2 = file2.listFiles();
@@ -89,11 +91,12 @@ public class SaveCoffeeObject {
 			BufferedInputStream bis = null;
 
 			// 학원
-			File img_file = new File(CoffeePath.PATH + "\\Coffee\\" + coffeeFileName.get(i) + ".jpg");
+//			File img_file = new File(ProjectMyPath.path + "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo\\Coffee/"
+//+ coffeeFileName.get(i) + ".jpg");
 			// 집
-//			File img_file = new File(
-//					"D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo\\Coffee/"
-//							+ coffeeFileName.get(i) + ".jpg");
+			File img_file = new File(
+					ProjectMyPath.path + "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo\\Coffee/"
+							+ coffeeFileName.get(i) + ".jpg");
 			byte[] img_read = new byte[(int) img_file.length()];
 			try {
 				fis = new FileInputStream(img_file);
@@ -159,11 +162,12 @@ public class SaveCoffeeObject {
 			BufferedInputStream bis2 = null;
 
 			// 학원
-			File img_file2 = new File(CoffeePath.PATH + "\\Drink\\" + drinkFileName.get(i) + ".jpg");
+//			File img_file2 = new File(ProjectMyPath.path + "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo\\Drink/"
+//					+ drinkFileName.get(i) + ".jpg");
 			// 집
-//			File img_file2 = new File(
-//					"D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo\\Drink/"
-//							+ drinkFileName.get(i) + ".jpg");
+			File img_file2 = new File(
+					ProjectMyPath.path + "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo\\Drink/"
+							+ drinkFileName.get(i) + ".jpg");
 			byte[] img_read = new byte[(int) img_file2.length()];
 			try {
 				fis2 = new FileInputStream(img_file2);
@@ -202,11 +206,13 @@ public class SaveCoffeeObject {
 		// ------------- 확인 끝
 
 		// 학원
-		File objectFile_ice_coffee = new File(CoffeePath.PATH + "/CoffeeObjectSave(Ice)/");
-		File objectFile_hot_coffee = new File(CoffeePath.PATH + "/CoffeeObjectSave(Hot)/");
+		File objectFile_ice_coffee = new File(ProjectMyPath.path
+				+ "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/CoffeeObjectSave(Ice)/");
+		File objectFile_hot_coffee = new File(ProjectMyPath.path
+				+ "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/CoffeeObjectSave(Ice)/");
 		// 집
-//		File objectFile_ice_coffee = new File("D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/CoffeeObjectSave(Ice)/");
-//		File objectFile_hot_coffee = new File("D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/CoffeeObjectSave(Hot)/");
+//		File objectFile_ice_coffee = new File(ProjectMyPath.path + "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/CoffeeObjectSave(Ice)/");
+//		File objectFile_hot_coffee = new File(ProjectMyPath.path + "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/CoffeeObjectSave(Hot)/");
 
 		// 객체 저장 (커피)
 		FileOutputStream fos = null;
@@ -243,12 +249,14 @@ public class SaveCoffeeObject {
 		}
 
 		// 학원
-		File objectFile_ice_drink = new File(CoffeePath.PATH + "/DrinkObjectSave(Ice)/");
-		File objectFile_hot_drink = new File(CoffeePath.PATH + "/DrinkObjectSave(Hot)/");
+		File objectFile_ice_drink = new File(ProjectMyPath.path
+				+ "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/DrinkObjectSave(Ice)/");
+		File objectFile_hot_drink = new File(ProjectMyPath.path
+				+ "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/DrinkObjectSave(Hot)/");
 		// 집
-//		File objectFile = new File("D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/CoffeeObjectSave/");
-//		File objectFile_ice_drink = new File("D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/DrinkObjectSave(Ice)/");
-//		File objectFile_hot_drink = new File("D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/DrinkObjectSave(Hot)/");
+//		File objectFile = new File(ProjectMyPath.path + "\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/CoffeeObjectSave/");
+//		File objectFile_ice_drink = new File(ProjectMyPath.path + "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/DrinkObjectSave(Ice)/");
+//		File objectFile_hot_drink = new File(ProjectMyPath.path + "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/DrinkObjectSave(Hot)/");
 
 		// 객체 저장 (음료)
 		FileOutputStream fos2 = null;

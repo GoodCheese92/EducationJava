@@ -1,7 +1,10 @@
 package menu_information;
 
 public interface CoffeePath {
-	final String PATH = "C:\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo";
+	// 학원
+	//final String PATH = "C:\\embedded_LSJ\\work\\";
+	// 집
+	String PATH = "D:\\국비지원\\embedded_LSJ\\work/";
 	
 	
 } // end of interface

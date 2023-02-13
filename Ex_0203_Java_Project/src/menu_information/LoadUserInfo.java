@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
+import path.ProjectMyPath;
+
 public class LoadUserInfo {
 	private UserInfomation[] userInfo;
 	
@@ -19,7 +21,10 @@ public class LoadUserInfo {
 	
 	
 	public LoadUserInfo() {
-		file = new File("C:\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\user_information\\userInfo");
+		// ÇÐ¿ø
+		// file = new File(ProjectMyPath.path + "\\Ex_0203_Java_Project\\src\\user_information\\userInfo");
+		// Áý
+		file = new File(ProjectMyPath.path + "\\Ex_0203_Java_Project\\src\\user_information\\userInfo");
 		
 		userInfo = new UserInfomation[file.list().length];
 		load();

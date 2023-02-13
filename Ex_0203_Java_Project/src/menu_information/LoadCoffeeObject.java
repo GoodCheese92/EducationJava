@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
+import path.ProjectMyPath;
+
 public class LoadCoffeeObject {
 
 	private CoffeeProperties[] coffee;
@@ -32,11 +34,11 @@ public class LoadCoffeeObject {
 	// 생성자
 	public LoadCoffeeObject(String path) {
 		// 학원
-		file = new File(
-				"C:\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/" + path);
-		// 집
 //		file = new File(
-//				"D:/국비지원/embedded_LSJ/work/Ex_0203_Java_Project/src/menu_information/CafeMenuInfo" + "/" + path);
+//				ProjectMyPath.path + "/Ex_0203_Java_Project/src/menu_information/CafeMenuInfo" + "/" + path);
+		// 집
+		file = new File(
+				ProjectMyPath.path + "/Ex_0203_Java_Project/src/menu_information/CafeMenuInfo" + "/" + path);
 
 		
 		

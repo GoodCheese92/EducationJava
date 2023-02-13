@@ -12,6 +12,16 @@ public class UserInfomation implements Serializable {
 	private int birthday;
 
 	private int phoneNum;
+	
+	private String majorName;
+
+	public String getMajorName() {
+		return majorName;
+	}
+
+	public void setMajorName(String majorName) {
+		this.majorName = majorName;
+	}
 
 	public int getPw() {
 		return pw;

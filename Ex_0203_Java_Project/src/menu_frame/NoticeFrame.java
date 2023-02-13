@@ -20,6 +20,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import path.ProjectMyPath;
+
 public class NoticeFrame {
 	public NoticeFrame(String restaurantName) {
 		// frame 세팅
@@ -38,9 +40,9 @@ public class NoticeFrame {
 		FileReader fr = null;
 		BufferedReader br = null;
 		// 학원
-		File file = new File("C:\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\notice_board\\notice_data" + "/" + restaurantName + " 공지사항/notice.txt");
+//		File file = new File(ProjectMyPath.path + "\\Ex_0203_Java_Project\\src\\notice_board\\notice_data" + "/" + restaurantName + " 공지사항/notice.txt");
 		// 집
-//		File file = new File("D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\notice_board\\notice_data" + "/" + restaurantName + " 공지사항/notice.txt");
+		File file = new File(ProjectMyPath.path + "\\Ex_0203_Java_Project\\src\\notice_board\\notice_data" + "/" + restaurantName + " 공지사항/notice.txt");
 		
 		ArrayList<String> notice_msg = new ArrayList<String>();
 		try {
