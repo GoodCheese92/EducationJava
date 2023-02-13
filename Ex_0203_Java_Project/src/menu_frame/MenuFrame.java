@@ -93,7 +93,7 @@ public class MenuFrame {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						new CafeMenuFrame();
-						frame.dispose();
+//						frame.dispose();
 					}
 				});
 				

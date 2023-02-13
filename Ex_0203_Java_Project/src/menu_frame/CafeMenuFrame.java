@@ -2,6 +2,7 @@ package menu_frame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -18,6 +19,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
@@ -62,31 +64,55 @@ public class CafeMenuFrame extends JFrame {
 		panel1.setBackground(Color.WHITE);
 		panel1.setBounds(10, 80, 1175, 450);
 
+		JPanel panel1_2 = new JPanel();
+		panel1_2.setBackground(Color.WHITE);
+		panel1_2.setBounds(10, 80, 1175, 450);
+
 		GridLayout gl = new GridLayout(2, 4, 10, 10);
 		panel1.setLayout(gl);
+		panel1_2.setLayout(gl);
 
 		// panel1 Coffee(Hot)에 버튼 세팅
 		LoadCoffeeObject lco = new LoadCoffeeObject("CoffeeObjectSave(Hot)");
 
 		// 커피(hot) 정보 객체 읽어오기
-		HashMap<Integer, JButton> hm1_btn = new HashMap<Integer, JButton>();
-		HashMap<Integer, CoffeeProperties> hm1_coffee = new HashMap<Integer, CoffeeProperties>();
+		HashMap<Integer, JButton> hm1_btn_hot1 = new HashMap<Integer, JButton>();
+		HashMap<Integer, JButton> hm1_btn_hot2 = new HashMap<Integer, JButton>();
+		HashMap<Integer, CoffeeProperties> hm1_coffee_hot1 = new HashMap<Integer, CoffeeProperties>();
+		HashMap<Integer, CoffeeProperties> hm1_coffee_hot2 = new HashMap<Integer, CoffeeProperties>();
 		JButton[] btn1 = new JButton[8];
+		JButton[] btn1_2 = new JButton[8];
 		for (int i = 0; i < btn1.length; i++) {
 			btn1[i] = new JButton();
-			hm1_btn.put(i, btn1[i]);
+			btn1_2[i] = new JButton();
+			hm1_btn_hot1.put(i, btn1[i]);
+			hm1_btn_hot2.put(i, btn1_2[i]);
 		} // for
 
 		for (int i = 0; i < lco.getCoffee().length; i++) {
-			ImageIcon img1 = new ImageIcon(lco.getCoffee()[i].getImgicon().getImage());
-			btn1[i].setIcon(img1);
-			btn1[i].setText("<html><center>" + lco.getCoffee()[i].getName() + "<br>" + lco.getCoffee()[i].getPrice()
-					+ "원</center></html>");
-			btn1[i].setHorizontalTextPosition(JButton.CENTER);
-			btn1[i].setVerticalTextPosition(JButton.BOTTOM);
-			hm1_coffee.put(i, lco.getCoffee()[i]);
+			// 8개를 기준으로 panel에 담는 버튼과 커피정보 나누기
+			switch (i / 8) {
+			case 0:
+				ImageIcon img1 = new ImageIcon(lco.getCoffee()[i].getImgicon().getImage());
+				btn1[i % 8].setIcon(img1);
+				btn1[i % 8].setText("<html><center>" + lco.getCoffee()[i].getName() + "<br>"
+						+ lco.getCoffee()[i].getPrice() + "원</center></html>");
+				btn1[i % 8].setHorizontalTextPosition(JButton.CENTER);
+				btn1[i % 8].setVerticalTextPosition(JButton.BOTTOM);
+				hm1_coffee_hot1.put(i % 8, lco.getCoffee()[i]);
+				break;
+			case 1:
+				ImageIcon img2 = new ImageIcon(lco.getCoffee()[i].getImgicon().getImage());
+				btn1_2[i % 8].setIcon(img2);
+				btn1_2[i % 8].setText("<html><center>" + lco.getCoffee()[i].getName() + "<br>"
+						+ lco.getCoffee()[i].getPrice() + "원</center></html>");
+				btn1_2[i % 8].setHorizontalTextPosition(JButton.CENTER);
+				btn1_2[i % 8].setVerticalTextPosition(JButton.BOTTOM);
+				hm1_coffee_hot2.put(i % 8, lco.getCoffee()[i]);
+				break;
+			} // switch
 		} // for
-			// -------------------------------------------------
+		// -------------------------------------------------
 
 		// Panel2 Coffee (Ice) 세팅 --------------------------
 		JPanel panel2 = new JPanel();
@@ -94,27 +120,51 @@ public class CafeMenuFrame extends JFrame {
 		panel2.setBounds(10, 80, 1175, 450);
 
 		panel2.setLayout(gl);
+		
+		JPanel panel2_2 = new JPanel();
+		panel2_2.setBackground(Color.WHITE);
+		panel2_2.setBounds(10, 80, 1175, 450);
+		
+		panel2_2.setLayout(gl);
 
 		// panel2 Coffee(Ice)에 버튼 세팅
 		LoadCoffeeObject lco2 = new LoadCoffeeObject("CoffeeObjectSave(Ice)");
-		HashMap<Integer, JButton> hm2_btn = new HashMap<Integer, JButton>();
-		HashMap<Integer, CoffeeProperties> hm2_coffee = new HashMap<Integer, CoffeeProperties>();
+		HashMap<Integer, JButton> hm2_btn_ice1 = new HashMap<Integer, JButton>();
+		HashMap<Integer, JButton> hm2_btn_ice2 = new HashMap<Integer, JButton>();
+		HashMap<Integer, CoffeeProperties> hm2_coffee_ice1 = new HashMap<Integer, CoffeeProperties>();
+		HashMap<Integer, CoffeeProperties> hm2_coffee_ice2 = new HashMap<Integer, CoffeeProperties>();
 
 		// 커피(ice) 정보 객체 읽어오기
 		JButton[] btn2 = new JButton[8];
+		JButton[] btn2_2 = new JButton[8];
 		for (int i = 0; i < btn2.length; i++) {
 			btn2[i] = new JButton();
-			hm2_btn.put(i, btn2[i]);
+			btn2_2[i] = new JButton();
+			hm2_btn_ice1.put(i, btn2[i]);
+			hm2_btn_ice2.put(i, btn2_2[i]);
 		} // for
 
 		for (int i = 0; i < lco2.getCoffee().length; i++) {
-			ImageIcon img = new ImageIcon(lco2.getCoffee()[i].getImgicon().getImage());
-			btn2[i].setIcon(img);
-			btn2[i].setText("<html><center>" + lco2.getCoffee()[i].getName() + "<br>" + lco2.getCoffee()[i].getPrice()
-					+ "원</center></html>");
-			btn2[i].setHorizontalTextPosition(JButton.CENTER);
-			btn2[i].setVerticalTextPosition(JButton.BOTTOM);
-			hm2_coffee.put(i, lco2.getCoffee()[i]);
+			switch(i/8) {
+			case 0:
+				ImageIcon img = new ImageIcon(lco2.getCoffee()[i].getImgicon().getImage());
+				btn2[i%8].setIcon(img);
+				btn2[i%8].setText("<html><center>" + lco2.getCoffee()[i].getName() + "<br>" + lco2.getCoffee()[i].getPrice()
+						+ "원</center></html>");
+				btn2[i%8].setHorizontalTextPosition(JButton.CENTER);
+				btn2[i%8].setVerticalTextPosition(JButton.BOTTOM);
+				hm2_coffee_ice1.put(i, lco2.getCoffee()[i]);
+				break;
+			case 1:
+				ImageIcon img2 = new ImageIcon(lco2.getCoffee()[i].getImgicon().getImage());
+				btn2_2[i%8].setIcon(img2);
+				btn2_2[i%8].setText("<html><center>" + lco2.getCoffee()[i].getName() + "<br>" + lco2.getCoffee()[i].getPrice()
+						+ "원</center></html>");
+				btn2_2[i%8].setHorizontalTextPosition(JButton.CENTER);
+				btn2_2[i%8].setVerticalTextPosition(JButton.BOTTOM);
+				hm2_coffee_ice2.put(i%8, lco2.getCoffee()[i]);
+				break;
+			} // switch
 		} // for
 			// -------------------------------------------------
 
@@ -181,34 +231,50 @@ public class CafeMenuFrame extends JFrame {
 		// ------------------------------------------ 중간패널 끝
 
 		// next, previous button 세팅
-		JButton n_btn = new JButton("->");
-		n_btn.setBounds(1150, 250, 50, 100);
-		n_btn.setVisible(true);
+		JButton n_btn_coffeeHot = new JButton("->");
+		JButton n_btn_coffeeIce = new JButton("->");
+		n_btn_coffeeHot.setBounds(1150, 250, 50, 100);
+		n_btn_coffeeHot.setVisible(true);
+		n_btn_coffeeIce.setBounds(1150, 250, 50, 100);
+		n_btn_coffeeIce.setVisible(false);
+		
+		
+		JButton p_btn_coffeeHot = new JButton("<-");
+		p_btn_coffeeHot.setBounds(0, 250, 50, 100);
+		p_btn_coffeeHot.setVisible(false);
+		JButton p_btn_coffeeIce = new JButton("<-");
+		p_btn_coffeeIce.setBounds(0, 250, 50, 100);
+		p_btn_coffeeIce.setVisible(false);
 
 		// bottom panel 세팅 ----------------------------------
 		JPanel bottom_panel = new JPanel();
 		bottom_panel.setBackground(new Color(150, 150, 200, 200));
 		bottom_panel.setBounds(10, 540, 1175, 320);
+		bottom_panel.setPreferredSize(new Dimension(1175, 320));
 		bottom_panel.setLayout(null);
 
 		// 메뉴 고른 것 보여줄 text area 세팅
 		JPanel Text_panel = new JPanel();
 		Text_panel.setBounds(10, 10, 900, 240);
 		Text_panel.setBackground(Color.white);
+		JScrollPane Text_panel_scroll = new JScrollPane(Text_panel);
+		Text_panel_scroll.setBounds(10, 10, 900, 240);
 		GridBagLayout text_gbl = new GridBagLayout();
 		GridBagConstraints text_gbc = new GridBagConstraints();
 		text_gbc.fill = GridBagConstraints.BOTH;
-		text_gbc.weighty = 0.1;
+//		text_gbc.weighty = 0.1;
+		text_gbc.gridheight = 1;
 
-		
-		JLabel[] content_lb = new JLabel[8 * 3];
+		int size = hm1_coffee_hot1.size() + hm1_coffee_hot2.size() + hm2_coffee_ice1.size() + hm2_coffee_ice2.size()
+					+ hm3_drink.size() + hm4_drink.size();
+		JLabel[] content_lb = new JLabel[size * 3];
+
 		for (int i = 0; i < content_lb.length; i++) {
 			content_lb[i] = new JLabel();
 			if (i >= 3) {
-				content_lb[i].setText("");
+				content_lb[i].setText(" ");
 			}
 			content_lb[i].setFont(new Font("휴먼명조", Font.BOLD, 13));
-			content_lb[i].setEnabled(false);
 			content_lb[i].setHorizontalAlignment(JLabel.CENTER);
 
 			text_gbc.gridx = i % 3;
@@ -224,9 +290,9 @@ public class CafeMenuFrame extends JFrame {
 			content_lb[i].setBorder(new LineBorder(Color.BLACK, 1, false));
 
 			text_gbl.setConstraints(content_lb[i], text_gbc);
-			Text_panel.setLayout(text_gbl);
 			Text_panel.add(content_lb[i], text_gbc);
 		} // for
+		Text_panel.setLayout(text_gbl);
 		content_lb[0].setText("주문 내역");
 		content_lb[1].setText("수량");
 		content_lb[2].setText("가격");
@@ -256,7 +322,7 @@ public class CafeMenuFrame extends JFrame {
 		pay_btn.setBounds(920, 130, 250, 180);
 
 		// 버튼 추가하기
-		bottom_panel.add(Text_panel);
+		bottom_panel.add(Text_panel_scroll);
 		bottom_panel.add(removeAll_btn);
 		bottom_panel.add(pay_btn);
 
@@ -265,17 +331,26 @@ public class CafeMenuFrame extends JFrame {
 		// frame에 panel 추가
 		add(top_panel);
 		add(panel1);
+		add(panel1_2);
+		panel1_2.setVisible(false);
 		add(panel2);
 		panel2.setVisible(false);
+		add(panel2_2);
+		panel2_2.setVisible(false);
 		add(panel3);
 		panel3.setVisible(false);
 		add(panel4);
 		panel4.setVisible(false);
 		add(bottom_panel);
-		add(n_btn);
+		add(n_btn_coffeeHot);
+		add(n_btn_coffeeIce);
+		add(p_btn_coffeeHot);
+		add(p_btn_coffeeIce);
 		for (int i = 0; i < btn1.length; i++) {
 			panel1.add(btn1[i]);
+			panel1_2.add(btn1_2[i]);
 			panel2.add(btn2[i]);
+			panel2_2.add(btn2_2[i]);
 			panel3.add(btn3[i]);
 			panel4.add(btn4[i]);
 		} // for
@@ -289,6 +364,12 @@ public class CafeMenuFrame extends JFrame {
 				panel2.setVisible(false);
 				panel3.setVisible(false);
 				panel4.setVisible(false);
+				panel1_2.setVisible(false);
+				panel2_2.setVisible(false);
+				n_btn_coffeeHot.setVisible(true);
+				n_btn_coffeeIce.setVisible(false);
+				p_btn_coffeeHot.setVisible(false);
+				p_btn_coffeeIce.setVisible(false);
 				repaint();
 			}
 		});
@@ -301,6 +382,12 @@ public class CafeMenuFrame extends JFrame {
 				panel2.setVisible(true);
 				panel3.setVisible(false);
 				panel4.setVisible(false);
+				panel1_2.setVisible(false);
+				panel2_2.setVisible(false);
+				n_btn_coffeeHot.setVisible(false);
+				n_btn_coffeeIce.setVisible(true);
+				p_btn_coffeeHot.setVisible(false);
+				p_btn_coffeeIce.setVisible(false);
 				repaint();
 			}
 		});
@@ -313,6 +400,12 @@ public class CafeMenuFrame extends JFrame {
 				panel2.setVisible(false);
 				panel3.setVisible(true);
 				panel4.setVisible(false);
+				panel1_2.setVisible(false);
+				panel2_2.setVisible(false);
+				n_btn_coffeeHot.setVisible(false);
+				n_btn_coffeeIce.setVisible(false);
+				p_btn_coffeeHot.setVisible(false);
+				p_btn_coffeeIce.setVisible(false);
 				repaint();
 			}
 		});
@@ -325,6 +418,12 @@ public class CafeMenuFrame extends JFrame {
 				panel2.setVisible(false);
 				panel3.setVisible(false);
 				panel4.setVisible(true);
+				panel1_2.setVisible(false);
+				panel2_2.setVisible(false);
+				n_btn_coffeeHot.setVisible(false);
+				n_btn_coffeeIce.setVisible(false);
+				p_btn_coffeeHot.setVisible(false);
+				p_btn_coffeeIce.setVisible(false);
 				repaint();
 			}
 		});
@@ -334,17 +433,29 @@ public class CafeMenuFrame extends JFrame {
 		// 중간 패널 coffee&drink 버튼 감지 ------------------------------
 		// coffee(Hot) 버튼 감지
 		int total_price = 0;
-		CafeButtonClickListener[] cbcl = new CafeButtonClickListener[hm1_coffee.size()];
-		for (int i = 0; i < hm1_coffee.size(); i++) {
-			cbcl[i] = new CafeButtonClickListener(i, hm1_coffee, content_lb, totalprice_lb);
+		CafeButtonClickListener[] cbcl = new CafeButtonClickListener[hm1_coffee_hot1.size()];
+		for (int i = 0; i < hm1_coffee_hot1.size(); i++) {
+			cbcl[i] = new CafeButtonClickListener(i, hm1_coffee_hot1, content_lb, totalprice_lb);
 			btn1[i].addActionListener(cbcl[i]);
-			
-		} // for
 
+		} // for
+		
+		CafeButtonClickListener[] cbcl1_2 = new CafeButtonClickListener[hm1_coffee_hot2.size()];
+		for (int i = 0; i < hm1_coffee_hot2.size(); i++) {
+			cbcl1_2[i] = new CafeButtonClickListener(i, hm1_coffee_hot2, content_lb, totalprice_lb);
+			btn1_2[i].addActionListener(cbcl1_2[i]);
+
+		} // for
+		
 		// coffee(Ice) 버튼 감지
-		for (int i = 0; i < hm2_coffee.size(); i++) {
-			btn2[i].addActionListener(new CafeButtonClickListener(i, hm2_coffee, content_lb, totalprice_lb));
-			total_price += hm2_coffee.get(i).getPrice();
+		for (int i = 0; i < hm2_coffee_ice1.size(); i++) {
+			btn2[i].addActionListener(new CafeButtonClickListener(i, hm2_coffee_ice1, content_lb, totalprice_lb));
+			total_price += hm2_coffee_ice1.get(i).getPrice();
+		} // for
+		
+		for (int i = 0; i < hm2_coffee_ice2.size(); i++) {
+			btn2_2[i].addActionListener(new CafeButtonClickListener(i, hm2_coffee_ice2, content_lb, totalprice_lb));
+			total_price += hm2_coffee_ice2.get(i).getPrice();
 		} // for
 
 		// drink(Hot) 버튼 감지
@@ -361,9 +472,53 @@ public class CafeMenuFrame extends JFrame {
 
 		// -------------------------중간 패널 coffee&drink 버튼 감지 끝
 		
+		// coffee(Hot) 다음 버튼 n_btn 감지
+		n_btn_coffeeHot.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				panel1.setVisible(false);
+				panel1_2.setVisible(true);
+				n_btn_coffeeHot.setVisible(false);
+				p_btn_coffeeHot.setVisible(true);
+			}
+		});
+		
+		// coffee(Hot) 이전 버튼 p_btn 감지
+		p_btn_coffeeHot.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				panel1.setVisible(true);
+				panel1_2.setVisible(false);
+				n_btn_coffeeHot.setVisible(true);
+				p_btn_coffeeHot.setVisible(false);
+			}
+		});
+		
+		// coffee(Ice) 다음 버튼 n_btn_coffeeIce 감지
+		n_btn_coffeeIce.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				panel2.setVisible(false);
+				panel2_2.setVisible(true);
+				n_btn_coffeeIce.setVisible(false);
+				p_btn_coffeeIce.setVisible(true);
+			}
+		});
+		
+		// coffee(Ice) 이전 버튼 p_btn_coffeeIce 감지
+		p_btn_coffeeIce.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				panel2.setVisible(true);
+				panel2_2.setVisible(false);
+				n_btn_coffeeIce.setVisible(true);
+				p_btn_coffeeIce.setVisible(false);
+			}
+		});
+		
 		// 전체삭제 버튼 클릭 감지
 		removeAll_btn.addActionListener(new CafeRemoveButtonListener(content_lb, totalprice_lb));
-		
+
 		// 결제하기 버튼 클릭 감지
 		pay_btn.addActionListener(new ActionListener() {
 			@Override
@@ -371,7 +526,7 @@ public class CafeMenuFrame extends JFrame {
 				new CafePayFrame(totalprice_lb);
 			}
 		});
-		
+
 		// frame 닫기 감지
 		addWindowListener(new WindowAdapter() {
 			@Override

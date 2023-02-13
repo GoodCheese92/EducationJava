@@ -58,9 +58,9 @@ public class ThisWeekMenu {
 	}
 	
 	// 학원
-//	String path = ProjectMyPath.path + "Ex_0203_Java_Project/src/menu_information/menuFile/";
+	String path = ProjectMyPath.path + "Ex_0203_Java_Project/src/menu_information/menuFile/";
 	// 집
-	String path = "D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\menuFile" + "/";
+//	String path = "D:\\국비지원\\embedded_LSJ\\work\\Ex_0203_Java_Project\\src\\menu_information\\menuFile" + "/";
 	
 	
 	File file = new File(path);
