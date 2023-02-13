@@ -13,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import menu_information.LoadUserInfo;
+
 public class LoginFrame extends JFrame {
 	public static void main(String[] args) {
 		new LoginFrame();
@@ -64,16 +66,25 @@ public class LoginFrame extends JFrame {
 		btn1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new MenuFrame();
-				dispose();
+				LoadUserInfo lui = new LoadUserInfo();
+				for(int i=0; i<lui.getUserInfo().length; i++) {
+					if(lui.getUserInfo()[i].getId().equals(login_tf.getText())) {
+						if(lui.getUserInfo()[i].getPw() == Integer.parseInt(login_pw.getText())){
+							new MenuFrame();
+							dispose();
+							break;
+						}
+					}
+				} // for
+				
 			}
 		});
 
-		// 버튼2(닫기) 감지
+		// 버튼2(회원가입) 감지
 		btn2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				new CreateUserFrame();
 			}
 		});
 
