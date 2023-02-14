@@ -209,7 +209,7 @@ public class SaveCoffeeObject {
 		File objectFile_ice_coffee = new File(ProjectMyPath.path
 				+ "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/CoffeeObjectSave(Ice)/");
 		File objectFile_hot_coffee = new File(ProjectMyPath.path
-				+ "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/CoffeeObjectSave(Ice)/");
+				+ "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/CoffeeObjectSave(Hot)/");
 		// 집
 //		File objectFile_ice_coffee = new File(ProjectMyPath.path + "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/CoffeeObjectSave(Ice)/");
 //		File objectFile_hot_coffee = new File(ProjectMyPath.path + "\\Ex_0203_Java_Project\\src\\menu_information\\CafeMenuInfo" + "/CoffeeObjectSave(Hot)/");
@@ -225,9 +225,8 @@ public class SaveCoffeeObject {
 			System.out.println("존재합니다.");
 		}
 
-		try {
-
-			for (int i = 0; i < coffee.length; i++) {
+		for (int i = 0; i < coffee.length; i++) {
+			try {
 				if (coffee[i].getName().contains("(Ice)")) {
 					fos = new FileOutputStream(objectFile_ice_coffee + "/" + coffee[i].getName() + ".save");
 				} else if (coffee[i].getName().contains("(Hot)")) {
@@ -236,15 +235,16 @@ public class SaveCoffeeObject {
 				oos = new ObjectOutputStream(fos);
 
 				oos.writeObject(coffee[i]);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				oos.close();
-				fos.close();
-			} catch (Exception e2) {
-				e2.printStackTrace();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					oos.close();
+					fos.close();
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
 			}
 		}
 

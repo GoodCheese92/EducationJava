@@ -41,7 +41,7 @@ public class StudentUnionFrame {
 //		btn3.setVerticalAlignment(SwingConstants.CENTER);
 
 		// 버튼 4
-		JButton btn4 = new JButton("<html><center>음식<br>미리 주문하기</center></html>");
+		JButton btn4 = new JButton("<html><center>식권<br>결제하기</center></html>");
 		btn4.setFont(btn_font);
 		btn4.setBounds(250, 200, 200, 100);
 //		btn4.setHorizontalAlignment(SwingConstants.CENTER);
@@ -84,6 +84,14 @@ public class StudentUnionFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new ThisWeekmenuFrame(restaurantName + " 메뉴/2월 2주차 메뉴.txt");
+			}
+		});
+		
+		// 식권 결제하기 버튼 감지
+		btn4.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new MealTicketPayFrame(restaurantName);
 			}
 		});
 		

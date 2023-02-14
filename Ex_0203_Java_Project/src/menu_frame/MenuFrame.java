@@ -19,7 +19,7 @@ public class MenuFrame {
 //				frame.setContentPane(panel);
 //				panel.setBackground(new Color(0, 200, 51));
 				frame.setLayout(null);
-				frame.setBounds(800, 200, 500, 400);
+				frame.setBounds(750, 150, 500, 400);
 
 				// 버튼 세팅-------------------------------------
 				// 버튼 1

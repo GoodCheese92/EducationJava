@@ -33,6 +33,7 @@ public class SaveUserInfo implements ActionListener {
 
 	private TextField id;
 	private TextField pw;
+	private TextField pw_check;
 	private TextField name;
 	private TextField birthday;
 	private TextField phoneNum;
@@ -47,10 +48,11 @@ public class SaveUserInfo implements ActionListener {
 	FileOutputStream fos = null;
 	ObjectOutputStream oos = null;
 
-	public SaveUserInfo(TextField id, TextField pw, TextField name, TextField birthday, TextField phoneNum,
+	public SaveUserInfo(TextField id, TextField pw, TextField pw_check, TextField name, TextField birthday, TextField phoneNum,
 			JFrame frame) {
 		this.id = id;
 		this.pw = pw;
+		this.pw_check = pw_check;
 		this.name = name;
 		this.birthday = birthday;
 		this.phoneNum = phoneNum;
@@ -79,7 +81,8 @@ public class SaveUserInfo implements ActionListener {
 
 		} // for
 
-		boolean isInfo = true;
+		boolean isInfo = true;	// 입력 정보 하나라도 틀리면 false
+		
 		if (id.getText().trim().length() == 10 && idCheck) {
 			userInfo.setId(id.getText().trim());
 		} else {
@@ -94,16 +97,16 @@ public class SaveUserInfo implements ActionListener {
 			isInfo = false;
 		}
 		switch (majorNum) {
-		case 001:
+		case 1:
 			userInfo.setMajorName("철학과");
 			break;
-		case 002:
+		case 2:
 			userInfo.setMajorName("국문학과");
 			break;
-		case 003:
+		case 3:
 			userInfo.setMajorName("사학과");
 			break;
-		case 011:
+		case 11:
 			userInfo.setMajorName("물리학과");
 			break;
 		case 12:
@@ -135,27 +138,18 @@ public class SaveUserInfo implements ActionListener {
 			break;
 		} // switch
 		
-		
+		// 비밀번호 재확인 같은지 비교
 		boolean isPw = true;
-		for(int i=0; i<pw.getText().trim().length();i++) {
-			System.out.println(pw.getText().trim().charAt(i));
-			if(pw.getText().trim().charAt(i) >= '0' && pw.getText().trim().charAt(i) <= '9') {
-				
-			} else {
-				isInfo = false;
-				isPw = false;
-				break;
-			}
-		} // for
-		if(isPw) {
-			try {
-				userInfo.setPw(Integer.parseInt(pw.getText().trim()));
-			} catch (Exception e2) {
-				
-			}
+		userInfo.setPw(pw.getText().trim());
+		
+		if(!pw.getText().trim().equals(pw_check.getText().trim())) {
+			isInfo = false;
+			isPw = false;
 		}
+		
 		userInfo.setName(name.getText().trim());
 		
+		// 생일정보 입력 오류 확인
 		boolean isBirthday = true;
 		for(int i=0; i<birthday.getText().trim().length();i++) {
 			if(birthday.getText().trim().charAt(i) >= '0' && birthday.getText().trim().charAt(i) <= '9') {
@@ -177,6 +171,7 @@ public class SaveUserInfo implements ActionListener {
 			isInfo = false;
 		}
 		
+		// 핸드폰 번호 정보 오류 확인
 		boolean isphoneNum = true;
 		for(int i=0; i<phoneNum.getText().trim().length();i++) {
 			if(phoneNum.getText().trim().charAt(i) >= '0' && phoneNum.getText().trim().charAt(i) <= '9') {

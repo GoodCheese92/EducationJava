@@ -50,6 +50,7 @@ public class CreateUserFrame extends JFrame {
 		TextField pw_tf = new TextField();
 		pw_tf.setFont(font_login);
 		pw_tf.setBounds(100, 50, 270, 30);
+		pw_tf.setEchoChar('*');
 		// -----------------------------------------------
 
 		// pw 재확인 세팅 ------------------------------------
@@ -62,6 +63,7 @@ public class CreateUserFrame extends JFrame {
 		TextField pwcheck_tf = new TextField();
 		pwcheck_tf.setFont(font_login);
 		pwcheck_tf.setBounds(100, 90, 270, 30);
+		pwcheck_tf.setEchoChar('*');
 		// -----------------------------------------------
 
 		// 이름
@@ -137,10 +139,10 @@ public class CreateUserFrame extends JFrame {
 					if (lui.getUserInfo()[i].getId().equals(id_tf.getText())) {
 						check_lb.setText("<html><center>중복된<br>아이디입니다.</center></html>");
 						break;
-					} 
+					}
 				} // for
 				check_frame.add(check_lb, BorderLayout.CENTER);
-				
+
 				check_frame.addWindowListener(new WindowAdapter() {
 					@Override
 					public void windowClosing(WindowEvent e) {
@@ -152,22 +154,9 @@ public class CreateUserFrame extends JFrame {
 			}
 		});
 
-		// 비밀번호 pw_tf text리스너 -> *로 바꾸기
-
-//		pw_tf.addTextListener(new TextListener() {
-//			@Override
-//			public void textValueChanged(TextEvent e) {
-//				System.out.println((TextField)e.getSource());
-//				char[] ch = new char[pw_tf.getText().length()];
-//				for(int i=0; i<pw_tf.getText().trim().length();i++) {
-//					ch[i] = pw_tf.getText().charAt(i);
-//				}
-//				pw_tf.setText(new String(ch));
-//			}
-//		});
-
 		// 생성 버튼 감지1
-		create_btn.addActionListener(new SaveUserInfo(id_tf, pw_tf, name_tf, birthday_tf, phoneNum_tf, this));
+		create_btn
+				.addActionListener(new SaveUserInfo(id_tf, pw_tf, pwcheck_tf, name_tf, birthday_tf, phoneNum_tf, this));
 
 		// 닫기 버튼 감지
 		close_btn.addActionListener(new ActionListener() {
